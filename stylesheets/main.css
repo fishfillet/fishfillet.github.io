@@ -1,0 +1,22 @@
+html, body{
+  height: 100%;
+  width: 100%;
+}
+
+body{
+  margin: 0;
+  display: table;
+}
+
+.container {
+display: table-cell;
+text-align: center;
+vertical-align: middle;
+width: 400px;
+height: 400px;
+margin: 0 auto 0 auto;
+}
+
+.portfolio-img{
+  border-radius: 50%;
+}
