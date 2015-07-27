@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Daniel Susetyo - Portfolio</title>
   <meta name="author" content="Daniel Susetyo">
-  <meta name="keywords" content="Daniel Susetyo, danielsusetyo, daniel susetyo, design, designer, interaction design, ixd, user experience, ux, interaction designer, daniel susetyo portfolio, web developer, junior, weirdo, card tricks.">
+  <meta name="keywords" content="Daniel Susetyo, danielsusetyo, daniel susetyo, design, designer, interaction design, ixd, user experience, ux, interaction designer, daniel susetyo portfolio, web developer, junior, weirdo, card tricks, fishfillet">
   <meta name="description" content="Daniel Susetyo is a user-experience designer who recently started learning web development living in Vancouver, BC, Canada.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="shortcut icon" href="images/favicon.ico" type="image/icon"> 
@@ -13,26 +13,58 @@
   <style type="text/css">
     html, body{height: 100%; width: 100%;}
     body{margin: 0; display: flex; justify-content: center; align-items: center;}
-    .container {text-align: center; vertical-align: middle; width: 400px; height: 400px; margin: 0 auto 0 auto;}
+    .container {text-align: center; vertical-align: middle; width: 400px; height: 400px; margin: 0 auto 0 auto; border: 3px solid black;}
     .portfolio-img{border-radius: 50%;}
+    .typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+    }
+    @keyframes blink{
+        0% { opacity:1; }
+        50% { opacity:0; }
+        100% { opacity:1; }
+    }
+    @-webkit-keyframes blink{
+        0% { opacity:1; }
+        50% { opacity:0; }
+        100% { opacity:1; }
+    }
+    @-moz-keyframes blink{
+        0% { opacity:1; }
+        50% { opacity:0; }
+        100% { opacity:1; }
+    }
   </style>
 </head>
-
 <body>
 
 <div class="container">
-  <img class="portfolio-img" alt="I'm not a corgi." src="images/corgi.jpg" height="200" width="200">
-  <h1>Daniel Susetyo's Portfolio</h1>
-  <p>I'm useful. Consider hiring me.</p>
+  <img class="portfolio-img" alt="I'm not a corgi." src="images/corgi.jpg" height="200" width="200" style="padding-top:20px;">
+  <h2>Daniel Susetyo's Portfolio</h2>
+ <!--  <p>I'm useful. Consider hiring me.</p> -->
+ <span class="element"></span>
   <a href="https://ca.linkedin.com/in/danielsusetyo"><p>LinkedIn. Bro.</p></a>
 </div>
 
 
 </body>
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+<script src="js/typed.js"></script>
 <script type="text/javascript">
-  var harold = [];
+  $(function(){
+      $(".element").typed({
+        strings: ["I'm useful. Consider hiring me.", "I take page load speeds seriously.", "I don't take myself too seriously.", "I do front-end web development.", "I do user experience design.", "My resume is in JSON, checkout my console.", "I am not a corgi, unfortunately."],
+        typeSpeed: 10,
+        startDelay: 10,
+        backSpeed: 10,
+        backDelay: 1000,
+        loop: true
+
+      });
+  });
+
   var resume = {
   "basics": {
     "name": "Daniel Susetyo",
@@ -113,8 +145,7 @@
     "reference": "..."
   }]
 };
-  harold.push('Mr. Whiskers', 'Help me.');
-  console.log(harold);
+
   console.log(resume);
 </script>
 </html>
