@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Daniel Susetyo - Portfolio</title>
+  <title>Daniel Susetyo | Portfolio</title>
   <meta name="author" content="Daniel Susetyo">
   <meta name="keywords" content="Daniel Susetyo, danielsusetyo, daniel susetyo, design, designer, interaction design, ixd, user experience, ux, interaction designer, daniel susetyo portfolio, web developer, junior, weirdo, card tricks, fishfillet">
   <meta name="description" content="Daniel Susetyo is a user-experience designer who recently started learning web development living in Vancouver, BC, Canada.">
@@ -13,7 +13,7 @@
   <style type="text/css">
     html, body{height: 100%; width: 100%;}
     body{margin: 0; display: flex; justify-content: center; align-items: center;}
-    .container {text-align: center; vertical-align: middle; width: 400px; height: 400px; margin: 0 auto 0 auto; border: 3px solid black;}
+    .container {text-align: center; vertical-align: middle; width: 400px; height: 400px; margin: 0 auto 0 auto; border: 3px solid black; background-color: #F0FFF0;}
     .portfolio-img{border-radius: 50%;}
     .typed-cursor{
     opacity: 1;
@@ -37,15 +37,27 @@
         100% { opacity:1; }
     }
   </style>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-65677608-1', 'auto');
+    ga('send', 'pageview');
+  </script>
 </head>
 <body>
 
 <div class="container">
   <img class="portfolio-img" alt="I'm not a corgi." src="images/corgi.jpg" height="200" width="200" style="padding-top:20px;">
-  <h2>Daniel Susetyo's Portfolio</h2>
+  <h1>Hi, I'm Daniel and...</h1>
  <!--  <p>I'm useful. Consider hiring me.</p> -->
- <span class="element"></span>
-  <a href="https://ca.linkedin.com/in/danielsusetyo"><p>LinkedIn. Bro.</p></a>
+ <h4><span class="element"></span></h4>
+ <div class="links" style="margin-top: 40px;">
+    <a href="https://ca.linkedin.com/in/danielsusetyo">LinkedIn. Bro.</a>
+    <a href="mailto:daniel.susetyo@gmail.com">Email me. Bro.</a>
+ </div>
 </div>
 
 
@@ -55,7 +67,7 @@
 <script type="text/javascript">
   $(function(){
       $(".element").typed({
-        strings: ["I'm useful. Consider hiring me.", "I take page load speeds seriously.", "I don't take myself too seriously.", "I do front-end web development.", "I do user experience design.", "My resume is in JSON, checkout my console.", "I am not a corgi, unfortunately."],
+        strings: ["I'm useful. Consider hiring me.", "I take page load speeds seriously.", "I don't take myself too seriously.", "I do front-end web development.", "I do user experience design.", "My resume is in JSON.", "I am not a corgi, unfortunately."],
         typeSpeed: 10,
         startDelay: 10,
         backSpeed: 10,
