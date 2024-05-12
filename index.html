@@ -1,182 +1,183 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Daniel Susetyo | Portfolio</title>
-  <meta name="author" content="Daniel Susetyo">
-  <meta name="keywords" content="Daniel Susetyo, danielsusetyo, daniel susetyo, design, designer, interaction design, ixd, user experience, ux, interaction designer, daniel susetyo portfolio, web developer, junior, weirdo, card tricks, fishfillet">
-  <meta name="description" content="Daniel Susetyo is a user-experience designer who recently started learning web development living in Vancouver, BC, Canada.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/icon">
-  <link rel="icon" href="images/favicon.ico" type="image/icon">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
-  <style type="text/css">
-    html, body{height: 100%; width: 100%;}
-    body{margin: 0; display: flex; justify-content: center; align-items: center; background-image: url("images/pattern.png");}
-    .container {text-align: center; vertical-align: middle; width: 400px; height: 400px; margin: 0 auto 0 auto; border: 3px solid black; background-color: #F0FFF0;}
-    .portfolio-img{border-radius: 50%;}
-    .typed-cursor{
-    opacity: 1;
-    -webkit-animation: blink 0.7s infinite;
-    -moz-animation: blink 0.7s infinite;
-    animation: blink 0.7s infinite;
-    }
-    @keyframes blink{
-        0% { opacity:1; }
-        50% { opacity:0; }
-        100% { opacity:1; }
-    }
-    @-webkit-keyframes blink{
-        0% { opacity:1; }
-        50% { opacity:0; }
-        100% { opacity:1; }
-    }
-    @-moz-keyframes blink{
-        0% { opacity:1; }
-        50% { opacity:0; }
-        100% { opacity:1; }
-    }
-  </style>
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-65677608-1', 'auto');
-  ga('send', 'pageview');
-  </script>
+<html lang="en">
+
+<head>
+  <title>Catlico - Cat-centric goods</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, width=device-width">
+  <meta name="description" content="Cat-centric goods designed to improve the wellbeing of cats and their humans.">
+  <meta name="keywords" content="cat, cats, pet, pets, litter, goods">
+  <meta property="og:title" content="Catlico - Cat-centric goods">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.catli.co">
+  <meta property="og:image" content="https://www.catli.co/img/openGraph.png">
+  <meta property="og:description" content="Cat-centric goods designed to improve the wellbeing of cats and their humans.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/normalize.css">
+  <link rel="stylesheet" href="./css/root.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="icon" type="image/png" href="./img/favicon.png">
+  <script src="./scripts/jquery-1.2.4.min.js"></script>
   <script>
-  /**
-  * Function that tracks a click on an outbound link in Google Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label.
-  */
-  var trackOutboundLink = function(url) {
-     ga('send', 'event', 'outbound', 'click', url, {'hitCallback':
-       function () {
-       document.location = url;
-       }
-     });
-  }
+    $(document).ready(function() {
+      const images = ['./img/cat1.png', './img/cat2.png', './img/cat3.png']; 
+      let currentIndex = 0;
+      function changeImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        const imageUrl = images[currentIndex];
+        $('#cycle1').attr('src', imageUrl);
+      }
+        setInterval(changeImage, 1000);
+    });
+    $(document).ready(function() {
+      const images = ['./img/cat4.png', './img/cat5.png', './img/cat6.png', './img/cat7.png']; 
+      let currentIndex = 0;
+      function changeImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        const imageUrl = images[currentIndex];
+        $('#cycle2').attr('src', imageUrl);
+      }
+        setInterval(changeImage, 1000);
+    });
   </script>
 </head>
-<body>
 
-<div class="container">
-  <img class="portfolio-img" alt="I'm not a corgi." src="images/corgi.jpg" height="200" width="200" style="padding-top:20px;">
-  <h1>Hi, I'm Daniel!</h1>
-  <!-- <p>I'm useful. Consider hiring me.</p> -->
-  <small>I'm not a corgi. Welcome to my website.</small>
- <!-- <h4><span class="element"></span></h4> -->
- <div class="links" style="margin-top: 40px;">
-    <a href="https://ca.linkedin.com/in/danielsusetyo" onclick="trackOutboundLink(‘https://ca.linkedin.com/in/danielsusetyo’); return false;">LinkedIn</a>
-    <a href="/resume/resume.pdf">Resume/CV</a>
-    <a href="/portfolio/portfolio.pdf">Portfolio</a>
-    <a href="https://gitlab.com/fishfillet">GitLab</a>
-    <a href="https://github.com/fishfillet">GitHub</a>
-    <a href="mailto:daniel.susetyo@gmail.com">Email me</a>
- </div>
-</div>
-
-
+<body class="Body">
+  <div class="Container">
+    <nav class="Nav">
+      <div class="Nav-logo"><img src="./img/logo.svg" alt="Catlico logo"/></div>
+      <div class="Socials">
+        <a class="Socials-item" target="_blank" href="mailto:hello@catli.co">
+          <div class="Socials-item-icon"><img src="./img/icon_mail.svg" alt="E-mail icon"/></div>
+          <span class="Footer-social-label Socials-item-label--email">e-mail</span>
+        </a>
+        <a class="Socials-item" href="https://www.instagram.com/cat.li.co/">
+          <div class="Socials-item-icon"><img src="./img/icon_instagram.svg" alt="Instagram icon"/></div>
+          <span class="Socials-item-label Socials-item-label--instagram">instagram</span>
+        </a>
+      </div>
+    </nav>
+    <header class="Header">
+      <h1 class="Header-title">
+        Better<br/>Bentonite
+      </h1>
+      <h2 class="Header-title Header-subtitle">
+        Cat&nbsp;Litter
+      </h2>
+    </header>
+    <div class="Action">
+      <div>
+        <a class="Action-button" href="https://www.tokopedia.com/catlico/catlico-better-bentonite-cat-litter-6l-pasir-kucing-gumpal-unscented">
+          <div class="Action-button-icon">
+            <img src="./img/cta_shopping.svg" alt="Shopping icon"/>
+          </div>
+          <div class="Action-button-text">
+            <p class="Action-button-text-label">Buy on</p>
+            <p class="Action-button-text-service">Tokopedia</p>
+          </div>
+        </a>
+      </div>
+      <div>
+        <a class="Action-button" href="https://shopee.co.id/Catlico-Better-Bentonite-Cat-litter-6L-Pasir-Kucing-Gumpal-Unscented-i.1038262482.20082325306?sp_atk=45fe85f7-1aa0-4f53-aade-0814d25dee18&xptdk=45fe85f7-1aa0-4f53-aade-0814d25dee18">
+          <div class="Action-button-icon">
+            <img src="./img/cta_shopping.svg" alt="Shopping icon"/>
+          </div>
+          <div class="Action-button-text">
+            <p class="Action-button-text-label">Buy on</p>
+            <p class="Action-button-text-service">Shopee</p>
+          </div>
+        </a>
+      </div>
+      <div>
+        <a class="Action-button" href="https://api.whatsapp.com/message/W2FFWU6ARBRKH1?autoload=1&app_absent=0">
+          <div class="Action-button-icon">
+            <img src="./img/cta_whatsapp.svg" alt="Whatsapp icon"/>
+          </div>
+          <div class="Action-button-text">
+            <p class="Action-button-text-label">Buy via</p>
+            <p class="Action-button-text-service">WhatsApp</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="Splash">
+      <div class="Splash-seal">
+        <img class="Splash-seal-fg" src="./img/seal_fg.svg" alt="Odor Seal Guarantee"/>
+        <img class="Splash-seal-bg" src="./img/seal_bg.svg" alt="Odor Seal Guarantee"/>
+      </div>
+      <img id="cycle1" src="./img/cat1.png" alt="Catlico mascot"/>
+    </div>
+    <div class="Pitch">
+      <p class="Pitch-description">
+        At CATLICO, we're committed to delivering thoughtful and purposeful cat-centric goods and solutions that enhance the whole-cat-care experience, focusing on the needs and well-being of both cats and their human companions. We are here to help make every experience of being a cat-parent a seamless and amazing one, so you can spend more time doing what matters most — bonding with your cats.
+      </p>
+      <ul class="Pitch-items">
+        <li class="Pitch-item">
+          <div class="Pitch-item-icon">
+            <img src="./img/icon_list1.svg" alt="Dust free icon"/>
+          </div>
+          <div class="Pitch-item-text">
+            <p class="Pitch-item-text-title">99.9% Dust Free</p>
+            <p class="Pitch-item-text-description">Superior dust-free technology ensures a safe and allergy-free environment for both cats and humans</p>
+          </div>
+        </li>
+        <li class="Pitch-item">
+          <div class="Pitch-item-icon">
+            <img src="./img/icon_list2.svg" alt="Odor killing icon"/>
+          </div>
+          <div class="Pitch-item-text">
+            <p class="Pitch-item-text-title">Odor Killing</p>
+            <p class="Pitch-item-text-description">Effectively locks and eliminates unpleasant odor</p>
+          </div>
+        </li>
+        <li class="Pitch-item">
+          <div class="Pitch-item-icon">
+            <img src="./img/icon_list3.svg" alt="Natural ingredients icon"/>
+          </div>
+          <div class="Pitch-item-text">
+            <p class="Pitch-item-text-title">100% Natural Highest Grade Bentonite Clay</p>
+            <p class="Pitch-item-text-description">No Additives, just pure, Non-Toxic Bentonite Clay</p>
+          </div>
+        </li>
+        <li class="Pitch-item">
+          <div class="Pitch-item-icon">
+            <img src="./img/icon_list4.svg" alt="Clumping icon"/>
+          </div>
+          <div class="Pitch-item-text">
+            <p class="Pitch-item-text-title">Instant Clumping</p>
+            <p class="Pitch-item-text-description">Ultra-fast and hard-clumping formula for easy scooping and minimal mess</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="Splash">
+      <div class="Splash-seal">
+        <img class="Splash-seal-fg" src="./img/seal_fg.svg" alt="Odor Seal Guarantee"/>
+        <img class="Splash-seal-bg" src="./img/seal_bg.svg" alt="Odor Seal Guarantee"/>
+      </div>
+      <img id="cycle2" src="./img/cat4.png" alt="Catlico mascot"/>
+    </div>
+  </div>
+  <footer class="Footer">
+    <div class="Footer-socials">
+      <a class="Footer-social" target="_blank" href="mailto:hello@catli.co">
+        <div class="Footer-social-icon"><img src="./img/icon_mail.svg" alt="E-mail icon"/></div>
+        <span class="Footer-social-label Footer-social-label--email">e-mail</span>
+      </a>
+      <a class="Footer-social" href="https://www.instagram.com/cat.li.co/">
+        <div class="Footer-social-icon"><img src="./img/icon_instagram.svg" alt="Instagram icon"/></div>
+        <span class="Footer-social-label Footer-social-label--instagram">instagram</span>
+      </a>
+    </div>
+    <div class="Footer-source">
+      <img src="./img/source.svg"/>
+    </div>
+    <div class="Footer-overlay">
+      <img src="./img/foot.png"/>
+    </div>
+  </footer>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-<script src="js/typed.js"></script>
-<script type="text/javascript">
-  $(function(){
-      $(".element").typed({
-        strings: ["I'm useful. Consider hiring me.", "I take page load speeds seriously.", "I don't take myself too seriously.", "I do front-end web development.", "I do user experience design.", "My resume is in JSON.", "I am not a corgi, unfortunately."],
-        typeSpeed: 10,
-        startDelay: 10,
-        backSpeed: 10,
-        backDelay: 1000,
-        loop: true
-
-      });
-  });
-
-  var resume = {
-  "basics": {
-    "name": "Daniel Susetyo",
-    "label": "Junior Front-end web-developer",
-    "picture": "",
-    "email": "daniel.susetyo@gmail.com",
-    "phone": "(604) 715-2878",
-    "website": "http://hallodaniel.com",
-    "summary": "I'm useful in more ways than one. Hire me.",
-    "location": {
-      "address": "...",
-      "postalCode": "...",
-      "city": "Vancouver",
-      "countryCode": "CA",
-      "region": "British Columbia"
-    },
-    "profiles": [{
-      "network": "Twitter",
-      "username": "danielsusetyo",
-      "url": "http://twitter.com/danielsusetyo"
-    }]
-  },
-  "work": [{
-    "company": "Skyrocket Digital",
-    "position": "Intern",
-    "website": "http://skyrocket.is",
-    "startDate": "2015-05-25",
-    "endDate": "2015-08-25",
-    "summary": "I'm using front-end tech such as GSAP to create engaging user interactions.",
-    "highlights": [
-      "The company's in-house magician."
-    ]
-  }],
-  "volunteer": [{
-    "organization": "...",
-    "position": "...",
-    "website": "http://organization.com/",
-    "startDate": "...",
-    "endDate": "...",
-    "summary": "Description...",
-    "highlights": [
-      "..."
-    ]
-  }],
-  "education": [{
-    "institution": "Simon Fraser University",
-    "area": "Interactive Arts and Technology",
-    "studyType": "Bachelor",
-    "startDate": "2009",
-    "endDate": "2014",
-    "gpa": "??",
-    "courses": [
-      "..."
-    ]
-  }],
-  "skills": [{
-    "name": "Front-end Web Development",
-    "level": "Noob",
-    "keywords": [
-      "HTML",
-      "CSS",
-      "Javascript"
-    ]
-  }],
-  "languages": [{
-    "language": "English & Indonesian",
-    "fluency": "Native speaker"
-  }],
-  "interests": [{
-    "name": "Dogs",
-    "keywords": [
-      "Corgis",
-      "Shiba-inus"
-    ]
-  }],
-  "references": [{
-    "name": "...",
-    "reference": "..."
-  }]
-};
-
-  console.log(resume);
-</script>
 </html>

@@ -1,0 +1,33 @@
+/* --- root */
+
+html {
+  font-size: 62.5%;
+}
+
+*, *::before, *::after {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* --- headings */
+
+h1, h2, h3, h4 {
+  margin: 0;
+  font-weight: 500;
+}
+
+/* --- misc */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+strong {
+  font-weight: 500;
+}
