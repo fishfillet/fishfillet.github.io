@@ -447,3 +447,18 @@
     transform: translateY(13.5rem);
   }
 }
+
+/* --- Language Switcher */
+.language-switcher {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 14px;
+}
+.language-switcher a {
+  font-size: 1em;
+  text-decoration: none;
+}
+.language-switcher a:hover {
+  text-decoration: underline;
+}

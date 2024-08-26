@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Allow: /id/
+Sitemap: https://www.catli.co/sitemap.xml
