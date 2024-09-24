@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 Allow: /id/
+Allow: /special/better-bentonite/
 Sitemap: https://www.catli.co/sitemap.xml
