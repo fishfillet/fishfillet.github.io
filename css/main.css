@@ -247,6 +247,15 @@
   background-color: #c65128;
 }
 
+.Action-button.Reverse{
+  background-color: #c65128;
+}
+.Action-button.Reverse:hover{
+  transform: translateY(0.3rem);
+  box-shadow: 0 0.4rem 0 0 #cdb9a8;
+  background-color: #347771; 
+}
+
 .Action-button-icon {
   max-width: 4.6rem;
   line-height: 1;
@@ -296,6 +305,21 @@
   }
 }
 
+.Splash.Ads{
+  padding: 2.3rem;
+}
+
+.Splash.Ads img{
+  border-radius: 4.8rem;
+}
+
+.Splash.Testimonial{
+  padding: 2.3rem;
+}
+
+.Splash.Testimonial img{
+}
+
 .Splash-seal {
   position: absolute;
   max-width: 8rem;
@@ -315,6 +339,28 @@
     max-width: 12rem;
     top: 3rem;
     right: 3rem;
+  }
+}
+
+.Splash-seal-left {
+  position: absolute;
+  max-width: 8rem;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index:2;
+}
+@media screen and (min-width: 750px) {
+  .Splash-seal-left {
+    max-width: 10rem;
+    top: 2rem;
+    left: 2rem;
+  }
+}
+@media screen and (min-width: 1020px) {
+  .Splash-seal-left{
+    max-width: 12rem;
+    top: 3rem;
+    left: 3rem;
   }
 }
 
