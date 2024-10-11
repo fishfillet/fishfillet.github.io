@@ -159,10 +159,13 @@
 
 .Header-ads{
   margin-bottom: 3rem;
-  font-size: 5rem;
+  font-size: 4.5rem;
   font-weight: 800;
   line-height: 0.8;
   letter-spacing: -0.15rem;
+  mark{
+    background-color: #f1d568;
+  }
   em{
     font-style: normal;
     color: #2c685a;
