@@ -33,28 +33,6 @@
   <link rel="stylesheet" href="../../css/main.css">
   <link rel="icon" type="image/png" href="../../img/favicon.png">
   <script src="../../scripts/jquery-1.2.4.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      const images = ['../../img/bag.png']; 
-      let currentIndex = 0;
-      function changeImage() {
-        currentIndex = (currentIndex + 1) % images.length;
-        const imageUrl = images[currentIndex];
-        $('#cycle1').attr('src', imageUrl);
-      }
-        setInterval(changeImage, 1000);
-    });
-    $(document).ready(function() {
-      const images = ['../../img/cat4.png', '../../img/cat5.png', '../../img/cat6.png', '../../img/cat7.png','../../img/cat1.png', '../../img/cat3.png', '../../img/cat2.png']; 
-      let currentIndex = 0;
-      function changeImage() {
-        currentIndex = (currentIndex + 1) % images.length;
-        const imageUrl = images[currentIndex];
-        $('#cycle2').attr('src', imageUrl);
-      }
-        setInterval(changeImage, 1000);
-    });
-  </script>
 </head>
 
 <body class="Body">
