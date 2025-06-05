@@ -30,7 +30,7 @@
   <meta property="og:title" content="Catlico - Cat-centric goods">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.catli.co">
-  <meta property="og:image" content="https://www.catli.co/img/openGraph.png">
+  <meta property="og:image" content="https://www.catli.co/img/openGraph.webp">
   <meta property="og:description" content="Cats are family and deserve the very best in life. That's why Catlico creates cat-centric goods—designed to improve the wellbeing of cats and their humans.">
   <meta name="facebook-domain-verification" content="bv6viv22aoyk1qeyg448g7it6yekp6" />
   <link rel="alternate" hreflang="en" href="https://www.catli.co/">
@@ -42,15 +42,18 @@
   <link rel="stylesheet" href="./css/root.css">
   <link rel="stylesheet" href="./css/main.css">
   <link rel="icon" type="image/png" href="./img/favicon.png">
-  <script src="./scripts/jquery-1.2.4.min.js"></script>
+  <script src="./scripts/jquery-3.7.1.min.js"></script>
   <script>
     $(document).ready(function() {
-      const images = ['./img/bag.png']; 
+      const images = [
+        { webp: './img/bag.webp', fallback: './img/bag.png' }
+      ]; 
       let currentIndex = 0;
       function changeImage() {
         currentIndex = (currentIndex + 1) % images.length;
-        const imageUrl = images[currentIndex];
-        $('#cycle1').attr('src', imageUrl);
+        const img = images[currentIndex];
+        $('#cycle1').attr('src', img.fallback);
+        $('#cycle1').prev('source').attr('srcset', img.webp);
       }
         setInterval(changeImage, 1000);
     });
@@ -138,7 +141,10 @@
         <img class="Splash-seal-fg" src="./img/seal_fg.svg" alt="Odor Seal Guarantee"/>
         <img class="Splash-seal-bg" src="./img/seal_bg.svg" alt="Odor Seal Guarantee"/>
       </div>
-      <img id="cycle1" src="./img/bag.png" alt="Better Bentonite Cat Litter bag"/>
+      <picture>
+        <source srcset="./img/bag.webp" type="image/webp">
+        <img id="cycle1" src="./img/bag.png" alt="Better Bentonite Cat Litter bag"/>
+      </picture>
     </div>
     <div class="Pitch">
       <ul class="Pitch-items">
@@ -199,7 +205,7 @@
       </ul>
     </div>
     <div class="Splash">
-      <img id="cycle2" src="./img/cat4.png" alt="Catlico mascot"/>
+      <img id="cycle2" src="./img/cat4.png" alt="Catlico mascot" loading="lazy"/>
     </div>
     <div class="Pitch">
       <p class="Pitch-description">
