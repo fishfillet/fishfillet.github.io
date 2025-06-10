@@ -3,15 +3,6 @@
 <html lang="en">
 
 <head>
-    <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0GJCE06X45"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-0GJCE06X45');
-  </script>
     <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -42,12 +33,20 @@
   <link rel="stylesheet" href="./css/root.css">
   <link rel="stylesheet" href="./css/main.css">
   <link rel="icon" type="image/png" href="./img/favicon.png">
+  <!-- Preload critical above-fold images -->
+  <link rel="preload" as="image" href="./img/logo.svg">
+  <link rel="preload" as="image" href="./img/bag.webp" type="image/webp">
+  <link rel="preload" as="image" href="./img/bag.png" type="image/png">
+  <link rel="preload" as="image" href="./img/seal_fg.svg">
+  <link rel="preload" as="image" href="./img/seal_bg.svg">
   <script src="./scripts/jquery-3.7.1.min.js"></script>
   <script>
     $(document).ready(function() {
       const images = [
         { webp: './img/bag.webp', fallback: './img/bag.png' },
-        { webp: './img/pour.webp', fallback: './img/pour.jpg' }
+        { webp: './img/pour.jpg', fallback: './img/pour.jpg' },
+        { webp: './img/black_cat1.webp', fallback: './img/black_cat1.jpg' },
+        { webp: './img/black_cat2.webp', fallback: './img/black_cat2.jpg' }
       ]; 
       let currentIndex = 0;
       function changeImage() {
@@ -59,12 +58,21 @@
         setInterval(changeImage, 1000);
     });
     $(document).ready(function() {
-      const images = ['./img/cat4.png', './img/cat5.png', './img/cat6.png', './img/cat7.png','./img/cat1.png', './img/cat3.png', './img/cat2.png']; 
+      const images = [
+        { webp: './img/cat4.webp', fallback: './img/cat4.png' },
+        { webp: './img/cat5.webp', fallback: './img/cat5.png' },
+        { webp: './img/cat6.webp', fallback: './img/cat6.png' },
+        { webp: './img/cat7.webp', fallback: './img/cat7.png' },
+        { webp: './img/cat1.webp', fallback: './img/cat1.png' },
+        { webp: './img/cat3.webp', fallback: './img/cat3.png' },
+        { webp: './img/cat2.webp', fallback: './img/cat2.png' }
+      ]; 
       let currentIndex = 0;
       function changeImage() {
         currentIndex = (currentIndex + 1) % images.length;
-        const imageUrl = images[currentIndex];
-        $('#cycle2').attr('src', imageUrl);
+        const img = images[currentIndex];
+        $('#cycle2').attr('src', img.fallback);
+        $('#cycle2-source').attr('srcset', img.webp);
       }
         setInterval(changeImage, 1000);
     });
@@ -103,17 +111,6 @@
       </h2>
     </header>
     <div class="Action">
-      <div id="Tokopedia-button">
-        <a class="Action-button" href="https://www.tokopedia.com/catlico/catlico-better-bentonite-cat-litter-6l-pasir-kucing-gumpal-unscented">
-          <div class="Action-button-icon">
-            <img src="./img/cta_shopping.svg" alt="Shopping icon"/>
-          </div>
-          <div class="Action-button-text">
-            <p class="Action-button-text-label">Buy on</p>
-            <p class="Action-button-text-service">Tokopedia</p>
-          </div>
-        </a>
-      </div>
       <div id="Shopee-button">
         <a class="Action-button" href="https://shopee.co.id/Catlico-Better-Bentonite-Cat-litter-6L-Pasir-Kucing-Gumpal-Unscented-i.1038262482.20082325306?sp_atk=45fe85f7-1aa0-4f53-aade-0814d25dee18&xptdk=45fe85f7-1aa0-4f53-aade-0814d25dee18">
           <div class="Action-button-icon">
@@ -122,6 +119,17 @@
           <div class="Action-button-text">
             <p class="Action-button-text-label">Buy on</p>
             <p class="Action-button-text-service">Shopee</p>
+          </div>
+        </a>
+      </div>
+      <div id="Tokopedia-button">
+        <a class="Action-button" href="https://www.tokopedia.com/catlico/catlico-better-bentonite-cat-litter-6l-pasir-kucing-gumpal-unscented">
+          <div class="Action-button-icon">
+            <img src="./img/cta_shopping.svg" alt="Shopping icon"/>
+          </div>
+          <div class="Action-button-text">
+            <p class="Action-button-text-label">Buy on</p>
+            <p class="Action-button-text-service">Tokopedia</p>
           </div>
         </a>
       </div>
@@ -206,7 +214,10 @@
       </ul>
     </div>
     <div class="Splash Splash-cycle">
-      <img id="cycle2" src="./img/cat4.png" alt="Catlico mascot" loading="lazy"/>
+      <picture>
+        <source id="cycle2-source" srcset="./img/cat4.webp" type="image/webp">
+        <img id="cycle2" src="./img/cat4.png" alt="Catlico mascot" loading="lazy"/>
+      </picture>
     </div>
     <div class="Pitch">
       <p class="Pitch-description">
@@ -302,19 +313,19 @@
   <footer class="Footer">
     <div class="Footer-socials">
       <a class="Footer-social" target="_blank" href="mailto:hello@catli.co">
-        <div class="Footer-social-icon"><img src="./img/icon_mail.svg" alt="E-mail icon"/></div>
+        <div class="Footer-social-icon"><img src="./img/icon_mail.svg" alt="E-mail icon" loading="lazy"/></div>
         <span class="Footer-social-label Footer-social-label--email">e-mail</span>
       </a>
       <a class="Footer-social" href="https://www.instagram.com/cat.li.co/">
-        <div class="Footer-social-icon"><img src="./img/icon_instagram.svg" alt="Instagram icon"/></div>
+        <div class="Footer-social-icon"><img src="./img/icon_instagram.svg" alt="Instagram icon" loading="lazy"/></div>
         <span class="Footer-social-label Footer-social-label--instagram">instagram</span>
       </a>
     </div>
     <div class="Footer-source">
-      <img src="./img/source.svg"/>
+      <img src="./img/source.svg" alt="Sourced From America icon" loading="lazy"/>
     </div>
     <div class="Footer-overlay">
-      <img src="./img/foot.png"/>
+      <img src="./img/foot.png" alt="Cute Catlico Logo Footer" loading="lazy"/>
     </div>
   </footer>
 </body>
