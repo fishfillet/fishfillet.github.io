@@ -46,7 +46,8 @@
   <script>
     $(document).ready(function() {
       const images = [
-        { webp: './img/bag.webp', fallback: './img/bag.png' }
+        { webp: './img/bag.webp', fallback: './img/bag.png' },
+        { webp: './img/pour.webp', fallback: './img/pour.jpg' }
       ]; 
       let currentIndex = 0;
       function changeImage() {
@@ -136,7 +137,7 @@
         </a>
       </div>
     </div>
-    <div class="Splash">
+    <div class="Splash Splash-cycle1">
       <div class="Splash-seal">
         <img class="Splash-seal-fg" src="./img/seal_fg.svg" alt="Odor Seal Guarantee"/>
         <img class="Splash-seal-bg" src="./img/seal_bg.svg" alt="Odor Seal Guarantee"/>
@@ -204,7 +205,7 @@
         </li>
       </ul>
     </div>
-    <div class="Splash">
+    <div class="Splash Splash-cycle">
       <img id="cycle2" src="./img/cat4.png" alt="Catlico mascot" loading="lazy"/>
     </div>
     <div class="Pitch">
@@ -215,6 +216,88 @@
         We are here to help make every experience of being a cat-parent a seamless and amazing one, so you can spend more time doing what matters most - bonding with your cats.
       </p>
     </div>
+    <section class="faq-section">
+      <div class="faq-container">
+        <h2 class="Header-faq"><mark>Frequently Asked Questions</mark></h2>
+        <div class="faq-items">
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Is Better Bentonite Cat Litter safe for my cat?</span>
+            </div>
+            <div class="faq-answer">
+              <p>Yes, our cat litter is made from 100% natural, non-toxic bentonite clay and is safe for cats of all ages and breeds.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>How often should I change the cat litter?</span>
+            </div>
+            <div class="faq-answer">
+              <p>We recommend scooping daily and completely changing the litter every 1-2 weeks depending on usage.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Is Better Bentonite Cat Litter scented?</span>
+            </div>
+            <div class="faq-answer">
+              <p>No, our cat litter is unscented to avoid irritating your cat's sensitive nose and respiratory system.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Is Better Bentonite Cat Litter safe for sensitive cats?</span>
+            </div>
+            <div class="faq-answer">
+              <p>Absolutely. Better Bentonite Cat Litter is unscented and made from pure bentonite, perfect for cats with sensitivities or allergies.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>How long does Better Bentonite Cat Litter's odor control last?</span>
+            </div>
+            <div class="faq-answer">
+              <p>Our advanced formula keeps your home fresh for up to 30 days with proper maintenance.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Can Better Bentonite Cat Litter be used in automatic litter boxes?</span>
+            </div>
+            <div class="faq-answer">
+              <p>Yes! Better Bentonite Cat Litter is designed to work perfectly with automatic litter boxes, making your life even more convenient.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Can Better Bentonite Cat Litter be flushed down the toilet?</span>
+            </div>
+            <div class="faq-answer">
+              <p>We do not recommend flushing any type of cat litter down the toilet. For our product, it should be disposed of in regular household trash.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script type="text/javascript">
+      // FAQ Accordion
+      const faqItems = document.querySelectorAll('.faq-item');
+
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+
+        question.addEventListener('click', () => {
+          item.classList.toggle('active');
+
+          if (item.classList.contains('active')) {
+            answer.style.display = 'block';
+          } else {
+            answer.style.display = 'none';
+          }
+        });
+      });
+    </script>
   </div>
   <footer class="Footer">
     <div class="Footer-socials">
