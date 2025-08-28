@@ -1,5 +1,11 @@
 User-agent: *
 Allow: /
 Allow: /id/
+Allow: /better-bentonite/
 Disallow: /special/
+Disallow: /better-bentonite/test-*.html
+Disallow: /test-*.html
+Disallow: /TDD-GUIDE.md
+Disallow: /CLAUDE.md
+Disallow: /*.js$
 Sitemap: https://www.catli.co/sitemap.xml

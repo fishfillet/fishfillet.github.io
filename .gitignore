@@ -3,6 +3,12 @@ special/
 
 # Project files
 CLAUDE.md
+TDD-GUIDE.md
+
+# Test files
+test-*.html
+better-bentonite/test-*.html
+test-framework.js
 
 # OS generated files
 .DS_Store
