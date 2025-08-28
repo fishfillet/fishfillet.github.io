@@ -28,6 +28,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@600;800&display=swap" rel="stylesheet">
+  <!-- Preload critical images -->
+  <link rel="preload" as="image" href="../img/logo.svg">
+  <link rel="preload" as="image" href="./img/main1.jpg" media="(min-width: 768px)">
+  <link rel="preload" as="image" href="./img/main1_mobile.webp" media="(max-width: 767px)">
   <link rel="stylesheet" href="../css/normalize.css">
   <link rel="stylesheet" href="../css/root.css">
   <link rel="stylesheet" href="../css/main.css">
@@ -40,7 +44,7 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.98);
+      background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(10px);
       box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
       transform: translateY(100%);
@@ -123,6 +127,36 @@
       }
     }
     
+    /* Advanced image loading optimizations */
+    .img-loading {
+      filter: blur(5px);
+      transition: filter 0.3s ease-in-out;
+    }
+    
+    .img-loaded {
+      filter: blur(0);
+    }
+    
+    .Splash img, .Splash picture {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+    
+    /* Optimize testimonial grid for mobile */
+    @media (max-width: 767px) {
+      .Splash.Testimonial {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        padding: 1rem;
+      }
+      
+      .Splash.Testimonial picture {
+        width: 100%;
+      }
+    }
+    
     /* Responsive styling for main CTA buttons */
     @media (max-width: 1020px) {
       .Action {
@@ -198,7 +232,11 @@
       </h2>
     </header>
     <div class="Splash Ads">
-      <img src="./img/main1.jpg" alt="Cat owner pouring Better Bentonite Cat Litter"/>
+      <picture>
+        <source media="(max-width: 767px)" srcset="./img/main1_mobile.webp" type="image/webp">
+        <source media="(max-width: 767px)" srcset="./img/main1.jpg">
+        <img src="./img/main1.jpg" alt="Cat owner pouring Better Bentonite Cat Litter" width="3936" height="5904"/>
+      </picture>
     </div>
     <div class="Pitch">
       <p class="Pitch-description">
@@ -284,16 +322,35 @@
       </h3>
     </header>
     <div class="Splash Testimonial">
-      <img src="./img/testimony2.png" alt="Cat owner pouring Better Bentonite Cat Litter" loading="lazy"/>
-      <img src="./img/testimony3.png" alt="Cat owner pouring Better Bentonite Cat Litter" loading="lazy"/>
-      <img src="./img/testimonyWA.jpeg" alt="Cat owner pouring Better Bentonite Cat Litter" loading="lazy"/>
+      <picture>
+        <source media="(max-width: 767px)" srcset="./img/testimony2_small.webp" type="image/webp">
+        <source srcset="./img/testimony2.webp" type="image/webp">
+        <img src="./img/testimony2.png" alt="Customer testimony" loading="lazy" width="1125" height="904"/>
+      </picture>
+      <picture>
+        <source media="(max-width: 767px)" srcset="./img/testimony3_small.webp" type="image/webp">
+        <source srcset="./img/testimony3.webp" type="image/webp">
+        <img src="./img/testimony3.png" alt="Customer testimony" loading="lazy" width="1125" height="1161"/>
+      </picture>
+      <picture>
+        <source media="(max-width: 767px)" srcset="./img/testimonyWA_small.webp" type="image/webp">
+        <source srcset="./img/testimonyWA.webp" type="image/webp">
+        <img src="./img/testimonyWA.jpeg" alt="WhatsApp customer testimony" loading="lazy" width="1028" height="1486"/>
+      </picture>
       <picture>
         <source srcset="./img/testimony5.webp" type="image/webp">
-        <img src="./img/testimony5.png" alt="Cat owner pouring Better Bentonite Cat Litter" loading="lazy"/>
+        <img src="./img/testimony5.png" alt="Customer testimony" loading="lazy" width="1125" height="1161"/>
       </picture>
-      <img src="./img/testimony1.png" alt="Cat owner pouring Better Bentonite Cat Litter" loading="lazy"/>
-      <img src="./img/testimony7.png" alt="Cat owner pouring Better Bentonite Cat Litter" loading="lazy"/>
-
+      <picture>
+        <source media="(max-width: 767px)" srcset="./img/testimony1_small.webp" type="image/webp">
+        <source srcset="./img/testimony1.webp" type="image/webp">
+        <img src="./img/testimony1.png" alt="Customer testimony" loading="lazy" width="1212" height="532"/>
+      </picture>
+      <picture>
+        <source media="(max-width: 767px)" srcset="./img/testimony7_small.webp" type="image/webp">
+        <source srcset="./img/testimony7.webp" type="image/webp">
+        <img src="./img/testimony7.png" alt="Customer testimony" loading="lazy" width="1115" height="764"/>
+      </picture>
     </div>
     <div class="Pitch">
     <p class="Pitch-description">
@@ -411,6 +468,160 @@
       });
       
       // Note: Sticky CTA functionality moved to bottom of page
+    </script>
+    
+    <!-- Advanced Image Loading Controller -->
+    <script>
+      /**
+       * Advanced Image Loading System
+       * Implements progressive loading, intersection observer, and performance optimizations
+       */
+      class AdvancedImageLoader {
+        constructor() {
+          this.observer = null;
+          this.loadedImages = new Set();
+          this.init();
+        }
+        
+        init() {
+          // Check if intersection observer is supported
+          if ('IntersectionObserver' in window) {
+            this.setupIntersectionObserver();
+          } else {
+            // Fallback for older browsers
+            this.loadAllImages();
+          }
+          
+          // Preload critical images
+          this.preloadCriticalImages();
+          
+          // Setup progressive image loading
+          this.setupProgressiveLoading();
+        }
+        
+        setupIntersectionObserver() {
+          const options = {
+            root: null,
+            rootMargin: '50px 0px', // Load images 50px before they come into view
+            threshold: 0.1
+          };
+          
+          this.observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                this.loadImage(entry.target);
+                this.observer.unobserve(entry.target);
+              }
+            });
+          }, options);
+          
+          // Observe all lazy-loaded images
+          const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+          lazyImages.forEach(img => {
+            this.observer.observe(img);
+            img.classList.add('img-loading');
+          });
+        }
+        
+        loadImage(img) {
+          if (this.loadedImages.has(img)) return;
+          
+          const picture = img.closest('picture');
+          if (picture) {
+            // Handle picture element with sources
+            const sources = picture.querySelectorAll('source');
+            sources.forEach(source => {
+              if (this.shouldLoadSource(source)) {
+                // Preload the WebP image
+                const link = document.createElement('link');
+                link.rel = 'preload';
+                link.as = 'image';
+                link.href = source.srcset;
+                link.type = source.type;
+                document.head.appendChild(link);
+              }
+            });
+          }
+          
+          // Load the main image
+          const imageLoader = new Image();
+          imageLoader.onload = () => {
+            img.classList.remove('img-loading');
+            img.classList.add('img-loaded');
+            this.loadedImages.add(img);
+          };
+          
+          // Start loading
+          imageLoader.src = img.src;
+          
+          // Update srcset if available
+          if (img.srcset) {
+            imageLoader.srcset = img.srcset;
+          }
+        }
+        
+        shouldLoadSource(source) {
+          if (!source.media) return true;
+          return window.matchMedia(source.media).matches;
+        }
+        
+        preloadCriticalImages() {
+          // Critical images are already preloaded in HTML head
+          // This handles any dynamic critical images
+          const criticalImages = document.querySelectorAll('img:not([loading="lazy"])');
+          criticalImages.forEach(img => {
+            if (!img.complete) {
+              img.addEventListener('load', () => {
+                img.classList.add('img-loaded');
+              });
+            } else {
+              img.classList.add('img-loaded');
+            }
+          });
+        }
+        
+        setupProgressiveLoading() {
+          // Add blur effect to images that haven't loaded yet
+          const allImages = document.querySelectorAll('img');
+          allImages.forEach(img => {
+            if (!img.complete && !img.classList.contains('img-loaded')) {
+              img.classList.add('img-loading');
+            }
+          });
+        }
+        
+        loadAllImages() {
+          // Fallback for browsers without intersection observer
+          const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+          lazyImages.forEach(img => this.loadImage(img));
+        }
+        
+        // Public API for manual loading
+        forceLoadImage(selector) {
+          const img = document.querySelector(selector);
+          if (img) this.loadImage(img);
+        }
+        
+        // Cleanup
+        destroy() {
+          if (this.observer) {
+            this.observer.disconnect();
+          }
+        }
+      }
+      
+      // Initialize advanced image loader
+      let imageLoader;
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+          imageLoader = new AdvancedImageLoader();
+        });
+      } else {
+        imageLoader = new AdvancedImageLoader();
+      }
+      
+      // Make available globally for debugging
+      window.advancedImageLoader = imageLoader;
     </script>
     <div class="Action center">
       <a class="Action-button" href="https://shopee.co.id/search?keyword=catlico" target="_blank" rel="noreferrer noopener">
