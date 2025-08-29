@@ -37,6 +37,7 @@
   <link rel="stylesheet" href="../css/main.css">
   <link rel="icon" type="image/png" href="../img/favicon.png">
   <script src="../scripts/jquery-3.7.1.min.js"></script>
+  <script src="../scripts/testimonial-carousel.js"></script>
   <style>
     .sticky-cta {
       position: fixed;
@@ -143,8 +144,9 @@
       height: auto;
     }
     
-    /* Optimize testimonial grid for mobile */
+    /* Optimize testimonial grid for mobile - disabled for carousel */
     @media (max-width: 767px) {
+      /* Grid layout disabled - using carousel instead
       .Splash.Testimonial {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -154,6 +156,17 @@
       
       .Splash.Testimonial picture {
         width: 100%;
+      }
+      */
+      
+      /* Ensure testimonial carousel takes full width on mobile */
+      .Splash.Testimonial {
+        padding: 1rem;
+      }
+      
+      .testimonial-carousel-container {
+        width: 100% !important;
+        max-width: 100% !important;
       }
     }
     
@@ -350,6 +363,11 @@
         <source media="(max-width: 767px)" srcset="./img/testimony7_small.webp" type="image/webp">
         <source srcset="./img/testimony7.webp" type="image/webp">
         <img src="./img/testimony7.png" alt="Customer testimony" loading="lazy" width="1115" height="764"/>
+      </picture>
+      <picture>
+        <source media="(max-width: 767px)" srcset="./img/testimonywa2_small.webp" type="image/webp">
+        <source srcset="./img/testimonywa2.webp" type="image/webp">
+        <img src="./img/testimonywa2.jpeg" alt="WhatsApp customer testimony 2" loading="lazy" width="1046" height="566"/>
       </picture>
     </div>
     <div class="Pitch">

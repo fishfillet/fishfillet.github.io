@@ -331,11 +331,243 @@ button#Ads-CTA, input[type="submit"], input[type="reset"] {
   border-radius: 4.8rem;
 }
 
+/* --- Testimonial Carousel */
 .Splash.Testimonial{
   padding: 2.3rem;
+  overflow: hidden;
+  position: relative;
 }
 
-.Splash.Testimonial img{
+.testimonial-carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  height: 450px; /* Increased height for better image display */
+  box-sizing: border-box;
+}
+
+.testimonial-carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+  height: 100%;
+}
+
+.testimonial-slide {
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.testimonial-slide picture,
+.testimonial-slide img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 1.2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure images inside picture elements also scale properly */
+.testimonial-slide picture img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Carousel Controls */
+.carousel-controls {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  z-index: 10;
+  background: rgba(248, 238, 229, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 0.8rem 1.5rem;
+  border-radius: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-arrow {
+  background: #c65128;
+  border: none;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 1.8rem;
+  user-select: none;
+  outline: none;
+  z-index: 10;
+}
+
+.carousel-arrow:hover {
+  background: #347771;
+  transform: scale(1.1);
+}
+
+.carousel-arrow:disabled {
+  background: #cdb9a8;
+  cursor: not-allowed;
+  transform: scale(1);
+}
+
+.carousel-arrow svg {
+  width: 2rem;
+  height: 2rem;
+  fill: currentColor;
+}
+
+/* Carousel Dots */
+.carousel-dots {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.carousel-dot {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: #cdb9a8;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  outline: none;
+}
+
+.carousel-dot.active {
+  background: #c65128;
+  transform: scale(1.2);
+}
+
+.carousel-dot:hover {
+  background: #347771;
+}
+
+/* Auto-play indicator */
+.carousel-progress {
+  position: absolute;
+  bottom: 0.3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.carousel-progress-bar {
+  height: 100%;
+  background: #c65128;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* Touch/Swipe styles */
+.testimonial-carousel.dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+
+.testimonial-carousel {
+  cursor: grab;
+}
+
+/* Mobile-first responsive adjustments */
+@media screen and (max-width: 749px) {
+  .Splash.Testimonial {
+    padding: 1rem !important;
+  }
+  
+  .testimonial-carousel-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    left: 0;
+    right: 0;
+    margin: 0;
+  }
+  
+  .testimonial-slide {
+    padding: 0 0.5rem;
+  }
+  
+  .carousel-controls {
+    bottom: 0.5rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .carousel-arrow {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.6rem;
+  }
+  
+  .carousel-dot {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+}
+
+/* Responsive adjustments */
+@media screen and (min-width: 750px) {
+  .testimonial-carousel-container {
+    height: 500px; /* Taller on medium screens */
+  }
+  
+  .testimonial-slide {
+    padding: 0 2rem;
+  }
+  
+  .carousel-arrow {
+    width: 4.5rem;
+    height: 4.5rem;
+    font-size: 2rem;
+  }
+  
+  .carousel-dot {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 1020px) {
+  .testimonial-carousel-container {
+    height: 550px; /* Taller on large screens for better image display */
+  }
+  
+  .carousel-arrow {
+    width: 5rem;
+    height: 5rem;
+    font-size: 2.2rem;
+  }
+  
+  .carousel-progress {
+    width: 120px;
+  }
 }
 
 .Splash-seal {
