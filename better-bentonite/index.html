@@ -41,7 +41,7 @@
       box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
       transform: translateY(100%);
       transition: transform 0.3s ease-in-out;
-      padding: 1rem 0;
+      padding: 1.8rem 0;
     }
     
     .sticky-cta.show {
@@ -54,8 +54,38 @@
     
     .sticky-cta .Action-button {
       margin: 0 0.5rem;
-      padding: 0.8rem 2.5rem 0.8rem 1rem;
-      font-size: 0.9rem;
+      padding: 1.2rem 2.5rem 1.2rem 1rem;
+      font-size: 1rem;
+    }
+
+    .sticky-cta.show .Action-button {
+      animation: buttonIntro 1.5s ease-out, buttonGlowSubtle 4s ease-in-out 1.5s infinite;
+    }
+
+    @keyframes buttonIntro {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+      40% {
+        transform: scale(1.4);
+        box-shadow: 0 8px 30px rgba(198, 81, 40, 0.6), 0 0 0 5px rgba(198, 81, 40, 0.3);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+    }
+
+    @keyframes buttonGlowSubtle {
+      0%, 100% {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transform: scale(1);
+      }
+      50% {
+        box-shadow: 0 6px 20px rgba(198, 81, 40, 0.3), 0 0 0 2px rgba(198, 81, 40, 0.15);
+        transform: scale(1.02);
+      }
     }
     
     .sticky-cta .Action-button-text-label {
@@ -76,8 +106,8 @@
       .sticky-cta .Action-button {
         margin: 0;
         flex: 1;
-        padding: 0.7rem 1.5rem 0.7rem 0.8rem;
-        font-size: 0.8rem;
+        padding: 1rem 1.5rem 1rem 0.8rem;
+        font-size: 0.9rem;
       }
       
       .sticky-cta .Action-button-icon {
@@ -99,7 +129,7 @@
     
     @media (max-width: 480px) {
       .sticky-cta .Action-button {
-        padding: 0.6rem 1rem 0.6rem 0.6rem;
+        padding: 0.9rem 1rem 0.9rem 0.6rem;
       }
       
       .sticky-cta .Action-button-icon {
@@ -768,14 +798,14 @@
   <script>
     /**
      * Sticky CTA Button Controller
-     * Shows/hides the sticky CTA button based on scroll position
+     * Shows the sticky CTA button after page load delay
      */
     class StickyCTAController {
-      constructor(elementId = 'stickyCta', triggerOffset = 1) {
+      constructor(elementId = 'stickyCta', loadDelay = 700) {
         this.element = document.getElementById(elementId);
-        this.triggerPoint = window.innerHeight * triggerOffset;
+        this.loadDelay = loadDelay; // milliseconds
         this.isVisible = false;
-        
+
         this.init();
       }
       
@@ -784,31 +814,15 @@
           console.warn('Sticky CTA element not found');
           return;
         }
-        
-        this.bindEvents();
+
+        this.scheduleShow();
       }
       
-      bindEvents() {
-        // Use passive event listener for better performance
-        window.addEventListener('scroll', this.handleScroll.bind(this), { passive: true });
-        
-        // Handle resize to recalculate trigger point
-        window.addEventListener('resize', this.handleResize.bind(this), { passive: true });
-      }
-      
-      handleScroll() {
-        const shouldShow = window.scrollY > this.triggerPoint;
-        
-        // Only update DOM if state actually changes
-        if (shouldShow !== this.isVisible) {
-          this.isVisible = shouldShow;
-          this.updateVisibility();
-        }
-      }
-      
-      handleResize() {
-        // Recalculate trigger point on window resize
-        this.triggerPoint = window.innerHeight;
+      scheduleShow() {
+        // Show CTA after specified delay
+        setTimeout(() => {
+          this.show();
+        }, this.loadDelay);
       }
       
       updateVisibility() {
@@ -831,8 +845,7 @@
       }
       
       destroy() {
-        window.removeEventListener('scroll', this.handleScroll.bind(this));
-        window.removeEventListener('resize', this.handleResize.bind(this));
+        // No event listeners to remove in the new implementation
       }
     }
     
