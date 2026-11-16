@@ -7,5 +7,18 @@ Disallow: /better-bentonite/test-*.html
 Disallow: /test-*.html
 Disallow: /TDD-GUIDE.md
 Disallow: /CLAUDE.md
-Disallow: /*.js$
+
+# AI crawlers: explicitly allowed. A named group replaces the * group for
+# that crawler, so the disallows are repeated here on purpose.
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: PerplexityBot
+User-agent: Google-Extended
+Allow: /
+Disallow: /special/
+Disallow: /better-bentonite/test-*.html
+Disallow: /test-*.html
+Disallow: /TDD-GUIDE.md
+Disallow: /CLAUDE.md
+
 Sitemap: https://www.catli.co/sitemap.xml
