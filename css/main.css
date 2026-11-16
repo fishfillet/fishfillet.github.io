@@ -964,3 +964,764 @@ button#Ads-CTA, input[type="submit"], input[type="reset"] {
     min-height: 380px;
   }
 }
+/* ============================================================
+   REVAMP 2026-03 — New site-wide structural components
+   ============================================================ */
+
+/* --- Site Header (new sticky nav) */
+
+.SiteHeader {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #fff;
+  border-bottom: 1px solid rgba(92, 62, 50, 0.12);
+  box-shadow: 0 2px 8px rgba(92, 62, 50, 0.06);
+}
+
+.SiteHeader-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 1.4rem 2rem;
+}
+
+.SiteHeader-logo {
+  flex-shrink: 0;
+  max-width: 11rem;
+  line-height: 1;
+  display: block;
+}
+@media screen and (min-width: 750px) {
+  .SiteHeader-logo { max-width: 13rem; }
+}
+
+.SiteHeader-nav {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  gap: 2.8rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+@media screen and (min-width: 900px) {
+  .SiteHeader-nav { display: flex; }
+}
+
+.SiteHeader-nav-link {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #5c3e32;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.SiteHeader-nav-link:hover { color: #007a72; }
+.SiteHeader-nav-link[aria-current="page"] { color: #007a72; font-weight: 800; }
+
+.SiteHeader-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.SiteHeader-lang {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #5c3e32;
+  white-space: nowrap;
+}
+.SiteHeader-lang a {
+  color: #5c3e32;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.SiteHeader-lang a:hover { color: #007a72; }
+.SiteHeader-lang a.active {
+  color: #007a72;
+  font-weight: 800;
+  text-decoration: underline;
+}
+.SiteHeader-lang span { color: #cdb9a8; margin: 0 0.3rem; }
+
+.SiteHeader-cta {
+  display: inline-block;
+  padding: 1rem 2.2rem;
+  background-color: #007a72;
+  color: #fff;
+  font-size: 1.7rem;
+  font-weight: 800;
+  border-radius: 99rem;
+  white-space: nowrap;
+  transition: background-color 0.15s, transform 0.15s;
+  text-decoration: none;
+}
+.SiteHeader-cta:hover {
+  background-color: #5c3e32;
+  transform: translateY(-1px);
+}
+
+/* --- Site Footer (new 3-column) */
+
+.SiteFooter { background-color: #5c3e32; color: #fee2cc; }
+
+/* SiteFooter-top, -middle, -bottom are section wrappers — layout done by PageContainer inside */
+.SiteFooter-top { padding: 5rem 0 4rem; }
+.SiteFooter-middle { padding: 4rem 0; }
+
+.SiteFooter-brand { margin-bottom: 3.5rem; }
+
+.SiteFooter-brand-logo {
+  max-width: 12rem;
+  margin-bottom: 1.2rem;
+  filter: brightness(0) invert(1);
+  display: block;
+}
+
+.SiteFooter-tagline {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: rgba(254, 226, 204, 0.75);
+  line-height: 1.4;
+}
+
+.SiteFooter-cols {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+@media screen and (min-width: 600px) {
+  .SiteFooter-cols { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+}
+
+.SiteFooter-col { display: flex; flex-direction: column; }
+
+.SiteFooter-col-heading {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+  color: #fee2cc;
+  margin: 0 0 1.4rem;
+}
+
+.SiteFooter-col-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.SiteFooter-col-links a {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: rgba(254, 226, 204, 0.75);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.SiteFooter-col-links a:hover { color: #fee2cc; }
+
+.SiteFooter-col-placeholder {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: rgba(254, 226, 204, 0.35);
+  font-style: italic;
+}
+
+.SiteFooter-bottom {
+  border-top: 1px solid rgba(254, 226, 204, 0.2);
+  padding: 2rem 0;
+}
+.SiteFooter-bottom .PageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  text-align: center;
+}
+@media screen and (min-width: 600px) {
+  .SiteFooter-bottom .PageContainer { flex-direction: row; justify-content: space-between; text-align: left; }
+}
+
+.SiteFooter-copy {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgba(254, 226, 204, 0.55);
+  margin: 0;
+}
+
+.SiteFooter-bottom-lang {
+  display: flex;
+  flex-direction: row;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.SiteFooter-bottom-lang a {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgba(254, 226, 204, 0.55);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.SiteFooter-bottom-lang a:hover { color: #fee2cc; }
+.SiteFooter-bottom-lang span { color: rgba(254, 226, 204, 0.3); }
+
+/* --- Homepage Hero */
+
+.Hero {
+  position: relative;
+  background-color: #fee2cc;
+  border-radius: 3.2rem;
+  margin-bottom: 4rem;
+  overflow: hidden;
+  padding: 5rem 3rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+@media screen and (min-width: 750px) { .Hero { padding: 6rem 5rem 5rem; margin-bottom: 5rem; } }
+@media screen and (min-width: 1020px) {
+  .Hero { flex-direction: row; align-items: center; gap: 4rem; padding: 7rem 6rem; margin-bottom: 6rem; }
+}
+
+.Hero-content { flex: 1 1 auto; position: relative; z-index: 2; }
+@media screen and (min-width: 1020px) { .Hero-content { flex: 0 0 55%; } }
+
+.Hero-h1 {
+  font-size: 5.6rem;
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.15rem;
+  color: #5c3e32;
+  margin: 0 0 2rem;
+}
+@media screen and (min-width: 750px) { .Hero-h1 { font-size: 7rem; } }
+@media screen and (min-width: 1020px) { .Hero-h1 { font-size: 8.4rem; } }
+
+.Hero-sub {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: rgba(92, 62, 50, 0.8);
+  margin: 0 0 3rem;
+  max-width: 50rem;
+}
+@media screen and (min-width: 750px) { .Hero-sub { font-size: 2.4rem; } }
+
+.Hero-actions { display: flex; flex-direction: column; gap: 1.2rem; }
+@media screen and (min-width: 600px) { .Hero-actions { flex-direction: row; flex-wrap: wrap; } }
+
+.Hero-btn {
+  display: inline-block;
+  padding: 1.4rem 3rem;
+  border-radius: 99rem;
+  font-size: 2rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 0.15s, background-color 0.15s;
+  white-space: nowrap;
+}
+.Hero-btn:hover { transform: translateY(-2px); }
+
+.Hero-btn--primary {
+  background-color: #007a72;
+  color: #fff;
+  box-shadow: 0 0.5rem 0 0 rgba(0, 90, 84, 0.35);
+}
+.Hero-btn--primary:hover { background-color: #005a54; }
+
+.Hero-btn--secondary {
+  background-color: transparent;
+  color: #5c3e32;
+  border: 2px solid #5c3e32;
+}
+.Hero-btn--secondary:hover { background-color: #5c3e32; color: #fee2cc; }
+
+.Hero-image {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+  max-width: 28rem;
+  align-self: center;
+}
+@media screen and (min-width: 1020px) { .Hero-image { flex: 0 0 40%; margin-top: 0; max-width: none; } }
+.Hero-image img { width: 100%; height: auto; border-radius: 2rem; }
+
+/* --- Homepage: Brand Intro (2-col) */
+
+.BrandIntro { display: flex; flex-direction: column; gap: 3rem; margin-bottom: 5rem; }
+@media screen and (min-width: 1020px) { .BrandIntro { flex-direction: row; align-items: center; gap: 5rem; } }
+
+.BrandIntro-image { flex: 0 0 auto; max-width: 24rem; align-self: center; }
+@media screen and (min-width: 1020px) { .BrandIntro-image { flex: 0 0 36%; max-width: none; } }
+.BrandIntro-image img { width: 100%; height: auto; border-radius: 2.4rem; }
+
+.BrandIntro-content { flex: 1 1 auto; }
+
+.BrandIntro-h2 {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.1rem;
+  color: #5c3e32;
+  margin: 0 0 2rem;
+}
+@media screen and (min-width: 750px) { .BrandIntro-h2 { font-size: 5rem; } }
+
+.BrandIntro-body {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #5c3e32;
+  margin: 0 0 1.8rem;
+}
+
+.BrandIntro-link {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #007a72;
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+  transition: color 0.15s;
+}
+.BrandIntro-link:hover { color: #5c3e32; }
+
+/* --- Homepage: Brand Pillars (3-col) */
+
+.Pillars { margin-bottom: 5rem; }
+
+.Pillars-heading {
+  font-size: 3.6rem;
+  font-weight: 800;
+  letter-spacing: -0.1rem;
+  color: #5c3e32;
+  margin: 0 0 3rem;
+  line-height: 1;
+}
+@media screen and (min-width: 750px) { .Pillars-heading { font-size: 4.5rem; } }
+
+.Pillars-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+@media screen and (min-width: 600px) { .Pillars-grid { grid-template-columns: repeat(3, 1fr); gap: 2.4rem; } }
+
+.Pillar { background-color: #fff; border-radius: 2.4rem; padding: 3rem 2.4rem; }
+
+.Pillar-icon { max-width: 5.6rem; margin-bottom: 1.6rem; }
+.Pillar-icon img { width: 100%; height: auto; }
+
+.Pillar-h3 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -0.05rem;
+  color: #5c3e32;
+  margin: 0 0 1rem;
+  line-height: 1.1;
+}
+
+.Pillar-body { font-size: 1.8rem; font-weight: 600; line-height: 1.45; color: rgba(92, 62, 50, 0.75); margin: 0; }
+
+/* --- Homepage: Featured Products */
+
+.FeaturedProducts { margin-bottom: 5rem; }
+
+.FeaturedProducts-heading {
+  font-size: 3.6rem;
+  font-weight: 800;
+  letter-spacing: -0.1rem;
+  color: #5c3e32;
+  margin: 0 0 3rem;
+  line-height: 1;
+}
+@media screen and (min-width: 750px) { .FeaturedProducts-heading { font-size: 4.5rem; } }
+
+.FeaturedProducts-grid { display: flex; flex-direction: column; gap: 2rem; }
+
+.ProductCard {
+  background-color: #fff;
+  border-radius: 2.4rem;
+  padding: 2.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+@media screen and (min-width: 750px) { .ProductCard { flex-direction: row; align-items: flex-start; gap: 3rem; } }
+
+/* .ProductCard-image-link wraps the image with a link */
+.ProductCard-image-link { flex: 0 0 auto; max-width: 18rem; align-self: center; display: block; }
+@media screen and (min-width: 750px) { .ProductCard-image-link { flex: 0 0 22rem; max-width: none; } }
+.ProductCard-image-link img,
+.ProductCard-image { width: 100%; height: auto; border-radius: 1.6rem; display: block; }
+
+/* .ProductCard-body is the text content area */
+.ProductCard-body { flex: 1 1 auto; display: flex; flex-direction: column; }
+
+/* .ProductCard-name is the product h3 */
+.ProductCard-name {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.08rem;
+  color: #5c3e32;
+  margin: 0 0 1rem;
+  line-height: 1;
+}
+
+.ProductCard-desc { font-size: 1.9rem; font-weight: 600; line-height: 1.4; color: rgba(92, 62, 50, 0.75); margin: 0 0 1.8rem; }
+
+.ProductCard-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+  list-style: none;
+  padding: 0;
+}
+
+.ProductCard-badge {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  background-color: #fee2cc;
+  color: #5c3e32;
+  font-size: 1.5rem;
+  font-weight: 800;
+  border-radius: 99rem;
+}
+
+.ProductCard-cta {
+  display: inline-block;
+  padding: 1.2rem 2.8rem;
+  background-color: #007a72;
+  color: #fff;
+  font-size: 1.9rem;
+  font-weight: 800;
+  border-radius: 99rem;
+  text-decoration: none;
+  transition: background-color 0.15s, transform 0.15s;
+  box-shadow: 0 0.4rem 0 rgba(0, 90, 84, 0.35);
+  align-self: flex-start;
+  margin-top: auto;
+}
+.ProductCard-cta:hover { background-color: #005a54; transform: translateY(-2px); }
+
+.ProductCard--coming-soon { background-color: #f5ede8; opacity: 0.6; cursor: default; }
+
+.ProductCard-coming-soon-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  gap: 1.2rem;
+  width: 100%;
+}
+
+.ProductCard-coming-soon-label {
+  display: inline-block;
+  padding: 0.6rem 1.4rem;
+  background-color: #cdb9a8;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 800;
+  border-radius: 99rem;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+}
+
+.ProductCard-coming-soon-body {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: rgba(92, 62, 50, 0.55);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* --- Homepage: Trust Signals */
+
+.TrustStrip {
+  background-color: #fff;
+  border-radius: 2.4rem;
+  margin-bottom: 5rem;
+  padding: 3rem 2.4rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+@media screen and (min-width: 600px) { .TrustStrip { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; } }
+
+.TrustStrip-item { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1rem; }
+.TrustStrip-icon { font-size: 3rem; line-height: 1; }
+.TrustStrip-label { font-size: 1.8rem; font-weight: 800; color: #5c3e32; line-height: 1.2; }
+.TrustStrip-sub { font-size: 1.6rem; font-weight: 600; color: rgba(92, 62, 50, 0.65); line-height: 1.3; }
+
+/* --- Shared: Page Header */
+
+.PageHeader { padding: 5rem 0 4rem; margin-bottom: 3rem; }
+
+.PageHeader-h1 {
+  font-size: 5.6rem;
+  font-weight: 800;
+  letter-spacing: -0.15rem;
+  color: #5c3e32;
+  line-height: 0.9;
+  margin: 0 0 1.5rem;
+}
+@media screen and (min-width: 750px) { .PageHeader-h1 { font-size: 7.5rem; } }
+
+.PageHeader-sub { font-size: 2rem; font-weight: 600; color: rgba(92, 62, 50, 0.7); line-height: 1.4; max-width: 60rem; margin: 0; }
+
+/* --- Product Page: 2-col hero */
+
+.ProductHero {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-bottom: 5rem;
+  background-color: #fff;
+  border-radius: 2.8rem;
+  padding: 3rem 2.4rem;
+}
+@media screen and (min-width: 900px) { .ProductHero { flex-direction: row; align-items: flex-start; gap: 4rem; padding: 4rem 4rem; } }
+
+.ProductHero-image { flex: 0 0 auto; max-width: 30rem; align-self: center; }
+@media screen and (min-width: 900px) { .ProductHero-image { flex: 0 0 40%; max-width: none; } }
+.ProductHero-image img { width: 100%; height: auto; border-radius: 2rem; }
+
+.ProductHero-content { flex: 1 1 auto; }
+
+.ProductHero-h1 {
+  font-size: 4.8rem;
+  font-weight: 800;
+  letter-spacing: -0.12rem;
+  color: #5c3e32;
+  margin: 0 0 0.8rem;
+  line-height: 0.95;
+}
+@media screen and (min-width: 750px) { .ProductHero-h1 { font-size: 5.8rem; } }
+
+.ProductHero-tagline { font-size: 2rem; font-weight: 600; color: #007a72; margin: 0 0 2.4rem; }
+
+.ProductHero-claims { list-style: none; margin: 0 0 2.4rem; padding: 0; display: flex; flex-direction: column; gap: 0.8rem; }
+
+.ProductHero-claim { display: flex; align-items: center; gap: 1rem; font-size: 1.9rem; font-weight: 800; color: #5c3e32; }
+.ProductHero-claim img { flex-shrink: 0; }
+
+.ProductHero-ctas { display: flex; flex-direction: column; gap: 1rem; margin-top: 2.8rem; }
+@media screen and (min-width: 600px) { .ProductHero-ctas { flex-direction: row; flex-wrap: wrap; } }
+
+.ProductHero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.2rem 2.4rem;
+  border-radius: 99rem;
+  font-size: 1.9rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background-color 0.15s, transform 0.15s;
+  white-space: nowrap;
+}
+.ProductHero-cta:hover { transform: translateY(-2px); }
+
+.ProductHero-cta--shopee {
+  background-color: #ff6633;
+  color: #fff;
+  box-shadow: 0 0.4rem 0 rgba(180, 60, 20, 0.35);
+}
+.ProductHero-cta--shopee:hover { background-color: #e85a2a; }
+
+.ProductHero-cta--tokopedia {
+  background-color: #fff;
+  color: #5c3e32;
+  border: 2px solid rgba(92, 62, 50, 0.25);
+  box-shadow: 0 0.4rem 0 rgba(92, 62, 50, 0.1);
+}
+.ProductHero-cta--tokopedia:hover { background-color: #f5ede8; border-color: #5c3e32; }
+
+/* --- Product Page: Claims detail 4-col */
+
+.ClaimsGrid { margin-bottom: 5rem; }
+
+.ClaimsGrid-heading {
+  font-size: 3.6rem;
+  font-weight: 800;
+  letter-spacing: -0.1rem;
+  color: #5c3e32;
+  margin: 0 0 3rem;
+  line-height: 1;
+}
+@media screen and (min-width: 750px) { .ClaimsGrid-heading { font-size: 4.5rem; } }
+
+.ClaimsGrid-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+@media screen and (min-width: 1020px) { .ClaimsGrid-grid { grid-template-columns: repeat(4, 1fr); gap: 2.4rem; } }
+
+.Claim { background-color: #fff; border-radius: 2rem; padding: 2.4rem 2rem; }
+.Claim-icon { max-width: 4.8rem; margin-bottom: 1.4rem; }
+.Claim-icon img { width: 100%; height: auto; }
+
+.Claim-h3 { font-size: 2rem; font-weight: 800; color: #5c3e32; margin: 0 0 0.8rem; line-height: 1.15; }
+@media screen and (min-width: 750px) { .Claim-h3 { font-size: 2.2rem; } }
+
+.Claim-body { font-size: 1.7rem; font-weight: 600; line-height: 1.45; color: rgba(92, 62, 50, 0.7); margin: 0; }
+
+/* --- Product Page: Split text-image section */
+
+.SplitSection {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-bottom: 5rem;
+  background-color: #fee2cc;
+  border-radius: 2.8rem;
+  padding: 3.5rem 2.8rem;
+  overflow: hidden;
+}
+@media screen and (min-width: 900px) { .SplitSection { flex-direction: row; align-items: center; gap: 4rem; padding: 4rem 4.5rem; } }
+
+.SplitSection-content { flex: 1 1 auto; }
+
+.SplitSection-h2 { font-size: 3.8rem; font-weight: 800; letter-spacing: -0.1rem; color: #5c3e32; margin: 0 0 2rem; line-height: 1.0; }
+@media screen and (min-width: 750px) { .SplitSection-h2 { font-size: 4.8rem; } }
+
+.SplitSection-body { font-size: 1.9rem; font-weight: 600; line-height: 1.5; color: rgba(92, 62, 50, 0.85); margin: 0 0 1.6rem; }
+.SplitSection-body:last-child { margin-bottom: 0; }
+
+.SplitSection-image { flex: 0 0 auto; max-width: 28rem; align-self: center; }
+@media screen and (min-width: 900px) { .SplitSection-image { flex: 0 0 38%; max-width: none; } }
+.SplitSection-image img { width: 100%; height: auto; border-radius: 2rem; }
+
+/* --- Product Page: Compatibility grid */
+
+.CompatGrid { background-color: #fff; border-radius: 2.4rem; padding: 3rem 2.8rem; margin-bottom: 5rem; }
+
+.CompatGrid-h2 { font-size: 3.4rem; font-weight: 800; letter-spacing: -0.08rem; color: #5c3e32; margin: 0 0 1rem; line-height: 1.0; }
+@media screen and (min-width: 750px) { .CompatGrid-h2 { font-size: 4rem; } }
+
+.CompatGrid-intro { font-size: 1.9rem; font-weight: 600; color: rgba(92, 62, 50, 0.75); margin: 0 0 2.4rem; line-height: 1.4; }
+
+.CompatGrid-list { display: flex; flex-direction: column; gap: 0; margin-bottom: 2rem; list-style: none; padding: 0; }
+
+.CompatGrid-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.4rem 1.6rem;
+  border-bottom: 1px solid rgba(92, 62, 50, 0.1);
+}
+.CompatGrid-item:first-child { border-top: 1px solid rgba(92, 62, 50, 0.1); }
+
+.CompatGrid-brand {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #5c3e32;
+}
+
+.CompatGrid-check {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #007a72;
+  flex-shrink: 0;
+}
+
+.CompatGrid-note { font-size: 1.6rem; font-weight: 600; color: rgba(92, 62, 50, 0.6); font-style: italic; margin: 0; }
+
+/* --- Product Page: How to Use steps */
+
+.HowToUse { margin-bottom: 5rem; }
+
+.HowToUse-h2 { font-size: 3.6rem; font-weight: 800; letter-spacing: -0.1rem; color: #5c3e32; margin: 0 0 3rem; line-height: 1; }
+@media screen and (min-width: 750px) { .HowToUse-h2 { font-size: 4.5rem; } }
+
+.HowToUse-steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0; }
+
+.HowToUse-step { display: flex; align-items: flex-start; gap: 2rem; padding: 2.4rem 0; border-bottom: 1px solid rgba(92, 62, 50, 0.12); }
+.HowToUse-step:last-child { border-bottom: none; }
+
+.HowToUse-step-number {
+  flex: 0 0 4.8rem; width: 4.8rem; height: 4.8rem;
+  background-color: #007a72; color: #fff; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.2rem; font-weight: 800; flex-shrink: 0;
+}
+
+.HowToUse-step-content { flex: 1 1 auto; padding-top: 0.4rem; }
+.HowToUse-step-title { font-size: 2.2rem; font-weight: 800; color: #5c3e32; margin: 0 0 0.4rem; }
+.HowToUse-step-desc { font-size: 1.8rem; font-weight: 600; color: rgba(92, 62, 50, 0.7); margin: 0; line-height: 1.4; }
+
+/* --- Product Page: Ingredients table */
+
+.Ingredients { background-color: #fff; border-radius: 2.4rem; padding: 3rem 2.8rem; margin-bottom: 5rem; }
+
+.Ingredients-h2 { font-size: 3.4rem; font-weight: 800; letter-spacing: -0.08rem; color: #5c3e32; margin: 0 0 2.4rem; line-height: 1.0; }
+@media screen and (min-width: 750px) { .Ingredients-h2 { font-size: 4rem; } }
+
+.Ingredients-table { width: 100%; border-collapse: collapse; font-size: 1.8rem; }
+
+.Ingredients-table th {
+  text-align: left; font-size: 1.5rem; font-weight: 800; letter-spacing: 0.06rem;
+  text-transform: uppercase; color: rgba(92, 62, 50, 0.55);
+  padding: 0 1.2rem 1.2rem; border-bottom: 2px solid rgba(92, 62, 50, 0.15);
+}
+.Ingredients-table th:first-child { padding-left: 0; }
+
+.Ingredients-table td { padding: 1.4rem 1.2rem; border-bottom: 1px solid rgba(92, 62, 50, 0.1); font-weight: 600; color: #5c3e32; vertical-align: top; line-height: 1.35; }
+.Ingredients-table td:first-child { padding-left: 0; font-weight: 800; }
+.Ingredients-table tr:last-child td { border-bottom: none; }
+
+/* --- Product Page: FAQ (details/summary) */
+
+.FaqSection { margin-bottom: 5rem; }
+
+.FaqSection-h2 { font-size: 3.6rem; font-weight: 800; letter-spacing: -0.1rem; color: #5c3e32; margin: 0 0 2.4rem; line-height: 1; }
+@media screen and (min-width: 750px) { .FaqSection-h2 { font-size: 4.5rem; } }
+
+.FaqSection-items { display: flex; flex-direction: column; gap: 0; }
+
+.FaqItem { border-bottom: 1px solid rgba(92, 62, 50, 0.15); }
+.FaqItem:first-child { border-top: 1px solid rgba(92, 62, 50, 0.15); }
+
+.FaqItem summary,
+.FaqItem-question {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 2rem 0; cursor: pointer; font-size: 2rem; font-weight: 800;
+  color: #5c3e32; line-height: 1.3; list-style: none; gap: 2rem;
+}
+.FaqItem summary::-webkit-details-marker { display: none; }
+
+.FaqItem summary::after,
+.FaqItem-question::after { content: '+'; font-size: 2.8rem; font-weight: 400; color: #007a72; flex-shrink: 0; transition: transform 0.2s; }
+.FaqItem[open] summary::after,
+.FaqItem[open] .FaqItem-question::after { transform: rotate(45deg); }
+
+.FaqItem-answer { padding: 0 0 2rem; font-size: 1.9rem; font-weight: 600; line-height: 1.55; color: rgba(92, 62, 50, 0.75); }
+.FaqItem-answer p { margin: 0 0 1.2rem; }
+.FaqItem-answer p:last-child { margin-bottom: 0; }
+
+/* --- Stub / placeholder page */
+
+.StubPage { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 8rem 2rem; min-height: 50vh; }
+
+.StubPage-h1 { font-size: 5.6rem; font-weight: 800; color: #5c3e32; margin: 0 0 1.5rem; letter-spacing: -0.15rem; line-height: 0.95; }
+
+.StubPage-body { font-size: 2rem; font-weight: 600; color: rgba(92, 62, 50, 0.65); margin: 0 0 3rem; max-width: 44rem; line-height: 1.5; }
+
+.StubPage-back {
+  display: inline-block; padding: 1.2rem 2.8rem; background-color: #007a72;
+  color: #fff; font-size: 1.9rem; font-weight: 800; border-radius: 99rem;
+  text-decoration: none; transition: background-color 0.15s;
+}
+.StubPage-back:hover { background-color: #5c3e32; }
+
+/* --- Shared: page content wrapper for new pages */
+
+.PageContainer { max-width: 120rem; margin: 0 auto; padding: 0 2rem; }
+@media screen and (min-width: 750px) { .PageContainer { padding: 0 3rem; } }
+@media screen and (min-width: 1020px) { .PageContainer { padding: 0 4rem; } }

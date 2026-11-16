@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-    <!-- Google Tag Manager -->
+  <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -11,73 +9,61 @@
   })(window,document,'script','dataLayer','GTM-5H3RN9K9');</script>
   <!-- End Google Tag Manager -->
   <!-- Facebook Pixel Code -->
-  <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js'); fbq('init', '244173318753642'); fbq('track', 'PageView');</script><noscript> <img height="1" width="1" src="https://www.facebook.com/tr?id=244173318753642&ev=PageView&noscript=1"/></noscript>
+  <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js'); fbq('init', '244173318753642'); fbq('track', 'PageView');</script>
+  <noscript><img height="1" width="1" src="https://www.facebook.com/tr?id=244173318753642&ev=PageView&noscript=1"/></noscript>
   <!-- End Facebook Pixel Code -->
-  <title>Catlico - Cat-centric goods</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, width=device-width">
-  <meta name="description" content="Cats are family and deserve the very best in life. That's why Catlico creates cat-centric goods—designed to improve the wellbeing of cats and their humans.">
-  <meta name="keywords" content="cat, cats, pet, pets, litter, goods">
-  <meta property="og:title" content="Catlico - Cat-centric goods">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.catli.co">
-  <meta property="og:image" content="https://www.catli.co/img/openGraph.webp">
-  <meta property="og:description" content="Cats are family and deserve the very best in life. That's why Catlico creates cat-centric goods—designed to improve the wellbeing of cats and their humans.">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Catlico — Natural Cat Care Products for Cat Parents in Indonesia</title>
+  <meta name="description" content="Catlico is Indonesia's cat-centric brand. We create thoughtful, natural cat care products — starting with Better Bentonite Cat Litter. Designed for cats. Made for cat parents." />
+  <link rel="canonical" href="https://www.catli.co/" />
+
+  <link rel="alternate" hreflang="en" href="https://www.catli.co/" />
+  <link rel="alternate" hreflang="id" href="https://www.catli.co/id/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.catli.co/" />
+
+  <meta property="og:title" content="Catlico — Natural Cat Care Products for Cat Parents in Indonesia" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.catli.co/" />
+  <meta property="og:image" content="https://www.catli.co/img/openGraph.webp" />
+  <meta property="og:description" content="Catlico is Indonesia's cat-centric brand. We create thoughtful, natural cat care products — starting with Better Bentonite Cat Litter." />
   <meta name="facebook-domain-verification" content="bv6viv22aoyk1qeyg448g7it6yekp6" />
-  <link rel="alternate" hreflang="en" href="https://www.catli.co/">
-  <link rel="alternate" hreflang="id" href="https://www.catli.co/id/">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/normalize.css">
-  <link rel="stylesheet" href="./css/root.css">
-  <link rel="stylesheet" href="./css/main.css">
-  <link rel="icon" type="image/png" href="./img/favicon.png">
-  <!-- Preload critical above-fold images -->
-  <link rel="preload" as="image" href="./img/logo.svg">
-  <link rel="preload" as="image" href="./img/bag.webp" type="image/webp">
-  <link rel="preload" as="image" href="./img/bag.png" type="image/png">
-  <link rel="preload" as="image" href="./img/seal_fg.svg">
-  <link rel="preload" as="image" href="./img/seal_bg.svg">
-  <script src="./scripts/jquery-3.7.1.min.js"></script>
-  <script src="./scripts/testimonial-carousel.js"></script>
-  <script>
-    $(document).ready(function() {
-      const images = [
-        { webp: './img/bag.webp', fallback: './img/bag.png' },
-        { webp: './img/pour.jpg', fallback: './img/pour.jpg' },
-        { webp: './img/black_cat1.webp', fallback: './img/black_cat1.jpg' },
-        { webp: './img/black_cat2.webp', fallback: './img/black_cat2.jpg' }
-      ]; 
-      let currentIndex = 0;
-      function changeImage() {
-        currentIndex = (currentIndex + 1) % images.length;
-        const img = images[currentIndex];
-        $('#cycle1').attr('src', img.fallback);
-        $('#cycle1').prev('source').attr('srcset', img.webp);
-      }
-        setInterval(changeImage, 1000);
-    });
-    $(document).ready(function() {
-      const images = [
-        { webp: './img/cat4.webp', fallback: './img/cat4.png' },
-        { webp: './img/cat5.webp', fallback: './img/cat5.png' },
-        { webp: './img/cat6.webp', fallback: './img/cat6.png' },
-        { webp: './img/cat7.webp', fallback: './img/cat7.png' },
-        { webp: './img/cat1.webp', fallback: './img/cat1.png' },
-        { webp: './img/cat3.webp', fallback: './img/cat3.png' },
-        { webp: './img/cat2.webp', fallback: './img/cat2.png' }
-      ]; 
-      let currentIndex = 0;
-      function changeImage() {
-        currentIndex = (currentIndex + 1) % images.length;
-        const img = images[currentIndex];
-        $('#cycle2').attr('src', img.fallback);
-        $('#cycle2-source').attr('srcset', img.webp);
-      }
-        setInterval(changeImage, 1000);
-    });
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Catlico",
+    "url": "https://www.catli.co/",
+    "logo": "https://www.catli.co/img/logo.svg",
+    "description": "Indonesia's cat-centric brand — thoughtful, natural cat care products for cat parents.",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "hello@catli.co",
+      "contactType": "customer service"
+    },
+    "sameAs": [
+      "https://www.instagram.com/cat.li.co/"
+    ]
+  }
   </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@600;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./css/normalize.css" />
+  <link rel="stylesheet" href="./css/root.css" />
+  <link rel="stylesheet" href="./css/main.css" />
+  <link rel="icon" type="image/png" href="./img/favicon.png" />
+  <link rel="apple-touch-icon" href="./img/favicon.png" />
+
+  <!-- Preload critical above-fold images -->
+  <link rel="preload" as="image" href="./img/logo.svg" />
+  <link rel="preload" as="image" href="./img/bag.webp" type="image/webp" />
+  <link rel="preload" as="image" href="./img/bag.png" type="image/png" />
 </head>
 
 <body class="Body">
@@ -85,249 +71,206 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5H3RN9K9"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-  <div class="Container">
-    <nav class="Nav">
-      <div class="Nav-logo"><img src="./img/logo.svg" alt="Catlico logo"/></div>
-      <div class="Socials">
-        <a class="Socials-item" target="_blank" href="mailto:hello@catli.co">
-          <div class="Socials-item-icon"><img src="./img/icon_mail.svg" alt="E-mail icon"/></div>
-          <span class="Footer-social-label Socials-item-label--email">e-mail</span>
-        </a>
-        <a class="Socials-item" href="https://www.instagram.com/cat.li.co/">
-          <div class="Socials-item-icon"><img src="./img/icon_instagram.svg" alt="Instagram icon"/></div>
-          <span class="Socials-item-label Socials-item-label--instagram">instagram</span>
-        </a>
-      </div>
-      <div class="language-switcher">
-       <a href="https://www.catli.co/" hreflang="en">English</a>
-       <a href="https://www.catli.co/id/" hreflang="id">Bahasa Indonesia</a>
-     </div>
-    </nav>
-    <header class="Header">
-      <h1 class="Header-title">
-        Better<br/>Bentonite
-      </h1>
-      <h2 class="Header-title Header-subtitle">
-        Cat&nbsp;Litter
-      </h2>
-    </header>
-    <div class="Action">
-      <div id="Shopee-button">
-        <a class="Action-button" href="https://shopee.co.id/Catlico-Better-Bentonite-Cat-litter-6L-Pasir-Kucing-Gumpal-Unscented-i.1038262482.20082325306?sp_atk=45fe85f7-1aa0-4f53-aade-0814d25dee18&xptdk=45fe85f7-1aa0-4f53-aade-0814d25dee18">
-          <div class="Action-button-icon">
-            <img src="./img/cta_shopping.svg" alt="Shopping icon"/>
-          </div>
-          <div class="Action-button-text">
-            <p class="Action-button-text-label">Buy on</p>
-            <p class="Action-button-text-service">Shopee</p>
-          </div>
-        </a>
-      </div>
-      <div id="Tokopedia-button">
-        <a class="Action-button" href="https://www.tokopedia.com/catlico/catlico-better-bentonite-cat-litter-6l-pasir-kucing-gumpal-unscented">
-          <div class="Action-button-icon">
-            <img src="./img/cta_shopping.svg" alt="Shopping icon"/>
-          </div>
-          <div class="Action-button-text">
-            <p class="Action-button-text-label">Buy on</p>
-            <p class="Action-button-text-service">Tokopedia</p>
-          </div>
-        </a>
-      </div>
-      <div id="WA-button">
-        <a class="Action-button" href="https://api.whatsapp.com/message/W2FFWU6ARBRKH1?autoload=1&app_absent=0">
-          <div class="Action-button-icon">
-            <img src="./img/cta_whatsapp.svg" alt="Whatsapp icon"/>
-          </div>
-          <div class="Action-button-text">
-            <p class="Action-button-text-label">Buy via</p>
-            <p class="Action-button-text-service">WhatsApp</p>
-          </div>
-        </a>
+
+  <!-- SITE HEADER -->
+  <header class="SiteHeader">
+    <div class="SiteHeader-inner">
+      <a class="SiteHeader-logo" href="/" aria-label="Catlico home">
+        <img src="./img/logo.svg" alt="Catlico" width="120" height="36" />
+      </a>
+      <nav class="SiteHeader-nav" aria-label="Main navigation">
+        <a class="SiteHeader-nav-link" href="/">Home</a>
+        <a class="SiteHeader-nav-link" href="/en/products/better-bentonite-cat-litter/">Our Products</a>
+        <a class="SiteHeader-nav-link" href="/en/about/">About</a>
+        <a class="SiteHeader-nav-link" href="/en/blog/">Blog</a>
+        <a class="SiteHeader-nav-link" href="/en/contact/">Contact</a>
+      </nav>
+      <div class="SiteHeader-right">
+        <div class="SiteHeader-lang" aria-label="Language switcher">
+          <a href="/" hreflang="en" lang="en" aria-current="page">EN</a>
+          <span aria-hidden="true"> | </span>
+          <a href="/id/" hreflang="id" lang="id">ID</a>
+        </div>
+        <a class="SiteHeader-cta" href="/en/products/better-bentonite-cat-litter/">Shop Now</a>
       </div>
     </div>
-    <div class="Splash Splash-cycle1">
-      <div class="Splash-seal">
-        <img class="Splash-seal-fg" src="./img/seal_fg.svg" alt="Odor Seal Guarantee"/>
-        <img class="Splash-seal-bg" src="./img/seal_bg.svg" alt="Odor Seal Guarantee"/>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <div class="PageContainer">
+
+      <!-- SECTION 1: HERO -->
+      <section class="Hero" aria-labelledby="hero-heading">
+        <div class="Hero-image">
+          <picture>
+            <source srcset="./img/bag.webp" type="image/webp" />
+            <img src="./img/bag.png" alt="Catlico Better Bentonite Cat Litter bag — natural, unscented bentonite cat litter" width="480" height="480" />
+          </picture>
+        </div>
+        <div class="Hero-content">
+          <h1 class="Hero-h1" id="hero-heading">A Better Life for Cats and the People Who Love Them</h1>
+          <p class="Hero-sub">Catlico is Indonesia's cat-centric brand — creating thoughtful, natural products that put your cat's wellbeing first and make life easier for cat parents.</p>
+          <div class="Hero-actions">
+            <a class="Hero-btn Hero-btn--primary" href="/en/products/better-bentonite-cat-litter/">Shop Better Bentonite</a>
+            <a class="Hero-btn Hero-btn--secondary" href="/en/about/">Learn About Us</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: BRAND INTRODUCTION -->
+      <section class="BrandIntro" aria-labelledby="brand-intro-heading">
+        <div class="BrandIntro-image">
+          <picture>
+            <source srcset="./img/cat1.webp" type="image/webp" />
+            <img src="./img/cat1.png" alt="Catlico black cat mascot — curious and content" width="400" height="400" loading="lazy" />
+          </picture>
+        </div>
+        <div class="BrandIntro-content">
+          <h2 id="brand-intro-heading">What is Catlico?</h2>
+          <p>Catlico is an Indonesian cat-centric brand — a destination for cat parents who want products that genuinely improve the lives of their cats, not just products that tick a box. We believe cats and cat parents deserve better: better materials, better care, better thought.</p>
+          <p>Every product we make starts with a single question: <em>is this truly good for the cat?</em> From there, we look at the cat parent's experience — because a product that's hard to use doesn't get used. Our approach is whole-cat-care: we think holistically about what makes a cat's life great, and design from there.</p>
+          <p>We're based in Indonesia and proud of it. Our first product, Better Bentonite Cat Litter, was born from the frustration of not being able to find a truly natural, unscented, high-quality clumping litter for our own cats. So we made one.</p>
+          <a class="BrandIntro-link" href="/en/about/">Read our story &rarr;</a>
+        </div>
+      </section>
+
+      <!-- SECTION 3: BRAND PILLARS -->
+      <section class="Pillars" aria-labelledby="pillars-heading">
+        <h2 class="Pillars-heading" id="pillars-heading">Why Catlico?</h2>
+        <div class="Pillars-grid">
+          <div class="Pillar">
+            <div class="Pillar-icon" aria-hidden="true">
+              <img src="./img/icon_list3.svg" alt="" width="48" height="48" loading="lazy" />
+            </div>
+            <h3 class="Pillar-h3">Natural &amp; Safe</h3>
+            <p class="Pillar-body">All Catlico products are made without harmful chemicals, artificial fragrances, or synthetic dyes. What's good for your cat is good for your home — and we never compromise on that.</p>
+          </div>
+          <div class="Pillar">
+            <div class="Pillar-icon" aria-hidden="true">
+              <img src="./img/icon_list2.svg" alt="" width="48" height="48" loading="lazy" />
+            </div>
+            <h3 class="Pillar-h3">Cat-Centric</h3>
+            <p class="Pillar-body">We design every product around the cat's needs first. Cats have sensitive noses, delicate paws, and strong instincts. Our products respect all of that — because that's what it means to be cat-centric.</p>
+          </div>
+          <div class="Pillar">
+            <div class="Pillar-icon" aria-hidden="true">
+              <img src="./img/icon_list5.svg" alt="" width="48" height="48" loading="lazy" />
+            </div>
+            <h3 class="Pillar-h3">Thoughtful Design</h3>
+            <p class="Pillar-body">From the formula to the packaging to the way it pours — every detail is considered. Good design makes cat care feel effortless, and that's exactly what we aim for with every Catlico product.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: FEATURED PRODUCTS -->
+      <section class="FeaturedProducts" aria-labelledby="products-heading">
+        <h2 class="FeaturedProducts-heading" id="products-heading">Our Products</h2>
+        <div class="FeaturedProducts-grid">
+
+          <!-- Product Card: Better Bentonite -->
+          <article class="ProductCard">
+            <a class="ProductCard-image-link" href="/en/products/better-bentonite-cat-litter/" aria-label="View Better Bentonite Cat Litter product page">
+              <picture>
+                <source srcset="./img/bag.webp" type="image/webp" />
+                <img class="ProductCard-image" src="./img/bag.png" alt="Catlico Better Bentonite Cat Litter — 6L bag" width="320" height="320" loading="lazy" />
+              </picture>
+            </a>
+            <div class="ProductCard-body">
+              <h3 class="ProductCard-name">Better Bentonite Cat Litter</h3>
+              <p class="ProductCard-desc">Our flagship natural bentonite cat litter — unscented, fast-clumping, and made from 100% natural highest grade Bentonite Clay. Gentle on cats, easy on cat parents.</p>
+              <ul class="ProductCard-badges" aria-label="Product claims">
+                <li class="ProductCard-badge">Odor Killing</li>
+                <li class="ProductCard-badge">Instant Clumping</li>
+                <li class="ProductCard-badge">100% Natural</li>
+                <li class="ProductCard-badge">99.9% Dust Free</li>
+              </ul>
+              <a class="ProductCard-cta" href="/en/products/better-bentonite-cat-litter/">Shop Now &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Coming Soon Card -->
+          <div class="ProductCard ProductCard--coming-soon" aria-label="More products coming soon">
+            <div class="ProductCard-coming-soon-inner">
+              <span class="ProductCard-coming-soon-label">More coming soon</span>
+              <p class="ProductCard-coming-soon-body">We're working on the next Catlico product — stay tuned.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION 5: TRUST SIGNALS -->
+      <section class="TrustStrip" aria-label="Why cat parents trust Catlico">
+        <div class="TrustStrip-item">
+          <span class="TrustStrip-icon" aria-hidden="true">&#127968;</span>
+          <span class="TrustStrip-label">Available on Tokopedia &amp; Shopee</span>
+        </div>
+        <div class="TrustStrip-item">
+          <span class="TrustStrip-icon" aria-hidden="true">&#128149;</span>
+          <span class="TrustStrip-label">Cat-parent approved</span>
+        </div>
+        <div class="TrustStrip-item">
+          <span class="TrustStrip-icon" aria-hidden="true">&#127470;&#127465;</span>
+          <span class="TrustStrip-label">Made with care in Indonesia</span>
+        </div>
+      </section>
+
+    </div><!-- /PageContainer -->
+  </main>
+
+  <!-- SITE FOOTER -->
+  <footer class="SiteFooter" aria-label="Site footer">
+    <div class="SiteFooter-top">
+      <div class="PageContainer">
+        <a href="/" class="SiteFooter-brand" aria-label="Catlico home">
+          <img class="SiteFooter-brand-logo" src="./img/logo.svg" alt="Catlico" width="120" height="36" loading="lazy" />
+        </a>
+        <p class="SiteFooter-tagline">A place where we believe cats and cat-parents deserve better.</p>
       </div>
-      <picture>
-        <source srcset="./img/bag.webp" type="image/webp">
-        <img id="cycle1" src="./img/bag.png" alt="Better Bentonite Cat Litter bag"/>
-      </picture>
     </div>
-    <div class="Pitch">
-      <ul class="Pitch-items">
-        <li class="Pitch-item">
-          <div class="Pitch-item-icon">
-            <img src="./img/icon_list1.svg" alt="Dust free icon"/>
+    <div class="SiteFooter-middle">
+      <div class="PageContainer">
+        <div class="SiteFooter-cols">
+          <div class="SiteFooter-col">
+            <h4 class="SiteFooter-col-heading">Products</h4>
+            <ul class="SiteFooter-col-links">
+              <li><a href="/en/products/better-bentonite-cat-litter/">Better Bentonite Cat Litter</a></li>
+              <li><span class="SiteFooter-col-placeholder">More coming soon</span></li>
+            </ul>
           </div>
-          <div class="Pitch-item-text">
-            <p class="Pitch-item-text-title">99.9% Dust Free</p>
-            <p class="Pitch-item-text-description">Superior dust-free technology ensures a safe and allergy-free environment for both cats and humans</p>
+          <div class="SiteFooter-col">
+            <h4 class="SiteFooter-col-heading">Company</h4>
+            <ul class="SiteFooter-col-links">
+              <li><a href="/en/about/">About Us</a></li>
+              <li><a href="/en/blog/">Blog</a></li>
+              <li><a href="/en/contact/">Contact</a></li>
+            </ul>
           </div>
-        </li>
-        <li class="Pitch-item">
-          <div class="Pitch-item-icon">
-            <img src="./img/icon_list2.svg" alt="Odor killing icon"/>
-          </div>
-          <div class="Pitch-item-text">
-            <p class="Pitch-item-text-title">Odor Killing</p>
-            <p class="Pitch-item-text-description">Effectively locks and eliminates unpleasant odor for 30 days</p>
-          </div>
-        </li>
-        <li class="Pitch-item">
-          <div class="Pitch-item-icon">
-            <img src="./img/icon_list3.svg" alt="Natural ingredients icon"/>
-          </div>
-          <div class="Pitch-item-text">
-            <p class="Pitch-item-text-title">100% Natural Highest Grade Bentonite Clay</p>
-            <p class="Pitch-item-text-description">No Additives, just pure, Non-Toxic Bentonite Clay</p>
-          </div>
-        </li>
-        <li class="Pitch-item">
-          <div class="Pitch-item-icon">
-            <img src="./img/icon_list4.svg" alt="Clumping icon"/>
-          </div>
-          <div class="Pitch-item-text">
-            <p class="Pitch-item-text-title">Instant Clumping</p>
-            <p class="Pitch-item-text-description">Ultra-fast and hard-clumping formula for easy scooping and minimal mess</p>
-          </div>
-        </li>
-        <li class="Pitch-item">
-          <div class="Pitch-item-icon">
-            <img src="./img/icon_list6.svg" alt="Unscented icon"/>
-          </div>
-          <div class="Pitch-item-text">
-            <p class="Pitch-item-text-title">Unscented</p>
-            <p class="Pitch-item-text-description">No scents or perfumes added, perfect for cats with a sensitive sense of smell</p>
-          </div>
-        </li>
-        <li class="Pitch-item">
-          <div class="Pitch-item-icon">
-            <img src="./img/icon_list5.svg" alt="Automatic cat litter box icon"/>
-          </div>
-          <div class="Pitch-item-text">
-            <p class="Pitch-item-text-title">Automatic Cat Litter Box Compatible</p>
-            <p class="Pitch-item-text-description">Safe to use with automatic, self-cleaning cat litter boxes</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div class="Splash Splash-cycle">
-      <picture>
-        <source id="cycle2-source" srcset="./img/cat4.webp" type="image/webp">
-        <img id="cycle2" src="./img/cat4.png" alt="Catlico mascot" loading="lazy"/>
-      </picture>
-    </div>
-    <div class="Pitch">
-      <p class="Pitch-description">
-        At CATLICO, we're committed to delivering thoughtful and purposeful cat-centric goods and solutions that enhance the whole-cat-care experience, focusing on the needs and well-being of both cats and their human companions. 
-      </p>
-      <p class="Pitch-description">
-        We are here to help make every experience of being a cat-parent a seamless and amazing one, so you can spend more time doing what matters most - bonding with your cats.
-      </p>
-    </div>
-    <section class="faq-section">
-      <div class="faq-container">
-        <h2 class="Header-faq"><mark>Frequently Asked Questions</mark></h2>
-        <div class="faq-items">
-          <div class="faq-item">
-            <div class="faq-question">
-              <span>Is Better Bentonite Cat Litter safe for my cat?</span>
-            </div>
-            <div class="faq-answer">
-              <p>Yes, our cat litter is made from 100% natural, non-toxic bentonite clay and is safe for cats of all ages and breeds.</p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">
-              <span>How often should I change the cat litter?</span>
-            </div>
-            <div class="faq-answer">
-              <p>We recommend scooping daily and completely changing the litter every 1-2 weeks depending on usage.</p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">
-              <span>Is Better Bentonite Cat Litter scented?</span>
-            </div>
-            <div class="faq-answer">
-              <p>No, our cat litter is unscented to avoid irritating your cat's sensitive nose and respiratory system.</p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">
-              <span>Is Better Bentonite Cat Litter safe for sensitive cats?</span>
-            </div>
-            <div class="faq-answer">
-              <p>Absolutely. Better Bentonite Cat Litter is unscented and made from pure bentonite, perfect for cats with sensitivities or allergies.</p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">
-              <span>How long does Better Bentonite Cat Litter's odor control last?</span>
-            </div>
-            <div class="faq-answer">
-              <p>Our advanced formula keeps your home fresh for up to 30 days with proper maintenance.</p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">
-              <span>Can Better Bentonite Cat Litter be used in automatic litter boxes?</span>
-            </div>
-            <div class="faq-answer">
-              <p>Yes! Better Bentonite Cat Litter is designed to work perfectly with automatic litter boxes, making your life even more convenient.</p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">
-              <span>Can Better Bentonite Cat Litter be flushed down the toilet?</span>
-            </div>
-            <div class="faq-answer">
-              <p>We do not recommend flushing any type of cat litter down the toilet. For our product, it should be disposed of in regular household trash.</p>
-            </div>
+          <div class="SiteFooter-col">
+            <h4 class="SiteFooter-col-heading">Connect</h4>
+            <ul class="SiteFooter-col-links">
+              <li><a href="https://www.instagram.com/cat.li.co/" target="_blank" rel="noopener noreferrer">Instagram: @cat.li.co</a></li>
+              <li><a href="mailto:hello@catli.co">Email: hello@catli.co</a></li>
+              <li><a href="https://api.whatsapp.com/message/W2FFWU6ARBRKH1?autoload=1&app_absent=0" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+              <li><a href="https://www.tokopedia.com/catlico/catlico-better-bentonite-cat-litter-6l-pasir-kucing-gumpal-unscented" target="_blank" rel="noopener noreferrer">Tokopedia</a></li>
+              <li><a href="https://shopee.co.id/Catlico-Better-Bentonite-Cat-litter-6L-Pasir-Kucing-Gumpal-Unscented-i.1038262482.20082325306" target="_blank" rel="noopener noreferrer">Shopee</a></li>
+            </ul>
           </div>
         </div>
       </div>
-    </section>
-    <script type="text/javascript">
-      // FAQ Accordion
-      const faqItems = document.querySelectorAll('.faq-item');
-
-      faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        const answer = item.querySelector('.faq-answer');
-
-        question.addEventListener('click', () => {
-          item.classList.toggle('active');
-
-          if (item.classList.contains('active')) {
-            answer.style.display = 'block';
-          } else {
-            answer.style.display = 'none';
-          }
-        });
-      });
-    </script>
-  </div>
-  <footer class="Footer">
-    <div class="Footer-socials">
-      <a class="Footer-social" target="_blank" href="mailto:hello@catli.co">
-        <div class="Footer-social-icon"><img src="./img/icon_mail.svg" alt="E-mail icon" loading="lazy"/></div>
-        <span class="Footer-social-label Footer-social-label--email">e-mail</span>
-      </a>
-      <a class="Footer-social" href="https://www.instagram.com/cat.li.co/">
-        <div class="Footer-social-icon"><img src="./img/icon_instagram.svg" alt="Instagram icon" loading="lazy"/></div>
-        <span class="Footer-social-label Footer-social-label--instagram">instagram</span>
-      </a>
     </div>
-    <div class="Footer-source">
-      <img src="./img/source.svg" alt="Sourced From America icon" loading="lazy"/>
-    </div>
-    <div class="Footer-overlay">
-      <img src="./img/foot.png" alt="Cute Catlico Logo Footer" loading="lazy"/>
+    <div class="SiteFooter-bottom">
+      <div class="PageContainer">
+        <p class="SiteFooter-copy">&copy; 2025 Catlico. All rights reserved.</p>
+        <div class="SiteFooter-bottom-lang" aria-label="Language switcher">
+          <a href="/" hreflang="en" lang="en">EN</a>
+          <span aria-hidden="true"> | </span>
+          <a href="/id/" hreflang="id" lang="id">ID</a>
+        </div>
+      </div>
     </div>
   </footer>
+
 </body>
 </html>
