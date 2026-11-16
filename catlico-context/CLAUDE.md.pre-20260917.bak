@@ -1,0 +1,37 @@
+# CLAUDE.md — catli.co
+
+Persistent instructions for Claude Code working in this repo. Read in full before making changes.
+
+## Site basics
+
+- Live domain: `https://www.catli.co/` (GitHub Pages, `CNAME` file sets this)
+- `master` = production branch, deployed automatically by GitHub Pages
+- Bilingual: English (`/en/` or `/`) and Bahasa Indonesia (`/id/`) — always maintain both when adding or editing pages
+- Brand tokens (colors, fonts, tone, terminology) are defined in `Catlico Claude/CATLICO_BRAND_GUIDE.md` and `Catlico Claude/brand context/Catlico - Brand Guideline.pdf` (outside this repo, in the parent project folder) — check them before writing new copy
+
+## SEO / AEO / GEO — mandatory, non-negotiable
+
+Full context, current gaps, and prioritized plan: **`catlico-context/CATLICO_SEO_AEO_GEO_MASTER_PLAN.md`** — read it before any SEO-related task. It explains that a finished site revamp has been sitting uncommitted since 2026-03-03; check current git status before assuming `master` matches the working tree.
+
+On every page you create or edit, without exception:
+
+1. `<html lang="en">` or `<html lang="id">` matching the page's language.
+2. Unique `<title>` and `<meta name="description">`, written natively in that language (never machine-translated).
+3. Self-referential `<link rel="canonical">`.
+4. Reciprocal `hreflang` triplet (`en`, `id`, `x-default`) — if you create an English page, create or stub its Indonesian counterpart in the same commit, and vice versa.
+5. Exactly one `<h1>` containing the primary keyword, as live HTML text (never an image).
+6. Every `<img>` has real `alt` text (format: `[Brand] [Product] — [descriptive keyword]`), plus explicit `width`/`height`.
+7. Any new page gets added to `sitemap.xml` with hreflang annotations, and to `robots.txt` allow rules if a new top-level path is introduced.
+8. Any FAQ content must be visible HTML (`<details>/<summary>` is fine) with matching `FAQPage` JSON-LD — never hide answers behind JS-only accordions.
+9. Write for AI extractability: answer the question in the first sentence after a heading, use self-contained sentences, use real HTML tables for comparisons (never images of tables). See the GEO writing rules in `Catlico Claude/CATLICO_SEO_IMPLEMENTATION.md` §11.
+10. Indonesian content is written natively in Bahasa Indonesia by a fluent pass — not machine-translated from English. Thin/auto-translated `/id/` content gets penalized as duplicate/low-quality content.
+
+## Before merging any branch that touches HTML/CSS
+
+Run a class cross-check: every `class="..."` value used in the HTML must resolve to a selector in `css/main.css`. A prior revamp (see `catlico-context/AUDIT_REPORT_20260303.md`) shipped 18+ CSS/HTML mismatches that would have broken the site's styling in production — don't repeat that. Do this programmatically, not by eyeballing the diff.
+
+## Don't
+
+- Don't add JavaScript-based geolocation/IP redirects for language switching — Googlebot crawls from the US and would get redirected away from `/id/` content, killing its indexation. Use a plain visible `<a>` link switcher (already implemented — keep it that way).
+- Don't publish an About/Blog/Contact stub page without either real content or `<meta name="robots" content="noindex, follow">` — indexed placeholder pages hurt more than missing pages.
+- Don't touch `special/*` campaign landing pages' SEO setup without confirming with Dan first — they appear to be intentionally noindexed paid-traffic pages, not organic content.
