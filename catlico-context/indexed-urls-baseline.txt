@@ -1,0 +1,22 @@
+# catli.co — Search Console indexed-URL baseline
+# Source: Google Search Console > Indexing > Pages, domain property sc-domain:catli.co
+# Captured: 2026-11-17 (GSC "last update" 2026-11-13). Read from the report UI; totals: 2 indexed, 4 not indexed.
+# Input to the R3 redirect map (BUILD_SPEC.md §3).
+
+## Indexed (2)
+https://www.catli.co/	last crawled 2026-11-11
+https://www.catli.co/id/	last crawled 2026-10-10
+
+## Not indexed — Page with redirect (3)
+https://catli.co/
+http://catli.co/
+http://www.catli.co/
+
+## Not indexed — Duplicate, Google chose different canonical than user (1)
+https://store.catli.co/
+
+## Notes
+# /better-bentonite/ is live and allowed by robots.txt but does not appear in the report at all
+# (neither indexed nor excluded). It is also absent from sitemap.xml. R3 should still write its
+# redirect stub: it has inbound ad/marketplace links even if Google has not indexed it.
+# /special/* is disallowed in robots.txt and noindexed by design; none of it appears here.
