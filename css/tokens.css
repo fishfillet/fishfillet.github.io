@@ -1,0 +1,254 @@
+/* ==========================================================================
+   catli.co — tokens.css  ·  R1 design contract (DESIGN_BRIEF §4a)
+   --------------------------------------------------------------------------
+   Flat custom properties. No build step, no imports, no classes.
+   Load first on every new page:  <link rel="stylesheet" href="/css/tokens.css">
+   Source of truth: Catlico Design System (tokens.json). Values match it 1:1
+   except where marked  ▲ R1  (additions/fixes proposed in this release).
+
+   Not included: a dark theme. The design does not commit to one.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   FONT — Galano Grotesque, self-hosted .woff2 (BUILD_SPEC §7)
+   ⚠ BLOCKER: confirm webfont rights before R1 closes. If not licensed, swap
+   the two src lines for Darker Grotesque (and revisit the type scale below,
+   which is tuned for Galano's wider set). Never ship the desktop .otf.
+   Subset to Latin + Latin-1 (Indonesian needs nothing beyond that).
+   -------------------------------------------------------------------------- */
+@font-face {
+  font-family: "Galano Grotesque";
+  src: url("/fonts/galano-grotesque-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Galano Grotesque";
+  src: url("/fonts/galano-grotesque-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ------------------------------------------------------------------------
+     1 · PALETTE — fixed brand inputs (DESIGN_BRIEF §2). No colours outside.
+     ------------------------------------------------------------------------ */
+  --catlico-brown:        #5c3e32;  /* text, headings, logo */
+  --teal-green:           #007a72;  /* action colour: CTAs, links */
+  --beige:                #fee2cc;  /* warm surfaces, cards */
+  --cat-black:            #231f20;  /* the mascot */
+  --white:                #ffffff;
+
+  /* secondaries — accents only, never large UI fields */
+  --terracotta-red-deep:  #a83623;
+  --terracotta-red:       #c65128;
+  --pastel-blue-deep:     #7fa4af;
+  --pastel-blue:          #daf0f6;
+  --pastel-yellow-deep:   #e9aa21;  /* mascot eyes */
+  --pastel-yellow:        #f1d568;
+  --leaf-green-deep:      #3f5f2c;  /* natural / ingredient claims */
+  --leaf-green:           #9ab64b;
+
+  /* derived tints & states (same hues, precomputed hex — no color-mix needed) */
+  --beige-50:             #fff1e6;
+  --beige-hover:          #f7d3b8;
+  --brown-hover:          #4d3329;
+  --teal-green-hover:     #00665f;
+  --teal-green-press:     #005650;
+  --teal-green-10:        #e6f2f1;
+  --teal-green-20:        #cce4e3;
+  --brown-a75:            #5c3e32bf;
+  --brown-a50:            #5c3e3280;
+  --brown-a25:            #5c3e3240;
+  --brown-a15:            #5c3e3226;
+  --brown-on-warm-muted:  #745749;  /* ▲ R1 — solid muted brown that passes on beige */
+
+  /* ------------------------------------------------------------------------
+     2 · ROLES — use these in components, not the palette names.
+     Contrast (WCAG 2.2) noted where it decides the choice.
+     ------------------------------------------------------------------------ */
+  --text-headline:        var(--catlico-brown);   /* 10.6:1 on white · 7.75:1 on beige */
+  --text-body:            var(--catlico-brown);
+  --text-muted:           var(--brown-a75);       /* 4.76:1 on white — white grounds only */
+  --text-muted-on-warm:   var(--brown-on-warm-muted); /* ▲ R1 5.3:1 on beige (brown-a75 is 4.18 — fails) */
+  --text-link:            var(--teal-green);      /* 5.22:1 on white */
+  --text-link-hover:      var(--catlico-brown);
+  --text-link-on-warm:    var(--teal-green-hover);/* ▲ R1 5.53:1 on beige (teal is 4.21 — fails <24px) */
+  --text-on-brown:        var(--beige);           /* 7.75:1 */
+  --text-on-teal:         var(--white);           /* ▲ R1 5.22:1 — for text under 24px (buttons, body) */
+  --text-on-teal-display: var(--beige);           /* 4.21:1 — 24px+ / 19px+ semibold only (brand look) */
+
+  --surface-page:         var(--white);
+  --surface-card:         var(--white);
+  --surface-warm:         var(--beige);           /* flagship card, signature bands */
+  --surface-warm-soft:    var(--beige-50);        /* trust strip, sunken panels */
+  --surface-brand:        var(--teal-green);      /* LP hero, occasional band */
+  --surface-earth:        var(--catlico-brown);   /* footer */
+  --surface-cool:         var(--pastel-blue);
+  --surface-photo-noodor: #f1f1f1;                /* bottle shot's own backdrop; product art only */
+
+  --border-subtle:        var(--brown-a15);
+  --border-default:       var(--brown-a25);
+  --border-control:       var(--brown-a50);
+  --border-strong:        var(--catlico-brown);
+  --border-selected:      var(--teal-green);
+
+  --action-bg:            var(--teal-green);
+  --action-bg-hover:      var(--teal-green-hover);
+  --action-bg-press:      var(--teal-green-press);
+  --action-fg:            var(--text-on-teal);
+
+  --claim-natural:        var(--leaf-green-deep);
+  --rating-star:          var(--pastel-yellow-deep); /* decorative; the number carries the meaning */
+  --note-placeholder:     var(--terracotta-red-deep);/* "replace before ship" markers in comps */
+
+  --focus-ring:           var(--teal-green);
+  --focus-ring-on-dark:   var(--beige);
+  --focus-width:          3px;
+  --focus-offset:         2px;
+
+  /* ------------------------------------------------------------------------
+     3 · TYPE — Galano Grotesque only. 600 headings, 500 body. No italic.
+     Desktop / mobile pairs; the fluid --fs-* aliases switch at 768px.
+     ------------------------------------------------------------------------ */
+  --font-display: "Galano Grotesque", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-body:    "Galano Grotesque", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  --weight-headline: 600;
+  --weight-body:     500;
+
+  --text-display:    72px;  --text-display-sm: 44px;
+  --text-h1:         56px;  --text-h1-sm:      36px;
+  --text-h2:         40px;  --text-h2-sm:      28px;
+  --text-h3:         28px;  --text-h3-sm:      22px;
+  --text-h4:         22px;  --text-h4-sm:      19px;
+  --text-lg:         19px;  /* lead paragraphs */
+  --text-md:         17px;  /* body */
+  --text-sm:         15px;  /* UI, captions */
+  --text-xs:         13px;  /* labels, legal — never below this */
+  --text-article:    19px;  /* long-form Indonesian reading */
+
+  --leading-tight:   1.02;  /* display, H1 */
+  --leading-snug:    1.15;  /* H2–H4 */
+  --leading-ui:      1.35;  /* buttons, badges */
+  --leading-body:    1.55;
+  --leading-article: 1.7;
+
+  --tracking-headline: -0.01em;
+  --tracking-body:     0;
+  --tracking-caps:     0.04em;
+
+  --measure-article:   66ch;
+  --measure-lead:      36em;
+
+  /* fluid aliases — desktop values; overridden below 768px */
+  --fs-display: var(--text-display);
+  --fs-h1:      var(--text-h1);
+  --fs-h2:      var(--text-h2);
+  --fs-h3:      var(--text-h3);
+  --fs-h4:      var(--text-h4);
+  --fs-lead:    20px;
+
+  /* ------------------------------------------------------------------------
+     4 · SPACE — 4px base
+     ------------------------------------------------------------------------ */
+  --space-0:  0;
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* layout */
+  --container:        1200px;
+  --container-narrow: 760px;
+  --gutter:           48px;
+  --gutter-sm:        16px;   /* the 400px minimum side gutter */
+  --section-y:        96px;
+  --section-y-sm:     56px;
+  --header-h:         80px;
+  --header-h-sm:      60px;
+  --page-gutter:      var(--gutter);    /* fluid */
+  --page-section-y:   var(--section-y); /* fluid */
+  --tap-min:          44px;
+
+  /* ------------------------------------------------------------------------
+     5 · RADII, BORDERS, SHADOWS
+     ------------------------------------------------------------------------ */
+  --radius-0:     0;
+  --radius-sm:    6px;    /* inputs, small chips */
+  --radius-md:    12px;   /* large marketplace buttons, panels */
+  --radius-lg:    18px;   /* review cards, tiles */
+  --radius-xl:    28px;   /* SKU cards, hero media */
+  --radius-pill:  999px;  /* buttons, badges */
+  --radius-round: 50%;
+
+  --border-width: 1.5px;
+  --icon-stroke:  2px;
+
+  --shadow-none: none;
+  --shadow-sm:   0 1px 2px #5c3e3214;
+  --shadow-md:   0 6px 20px -8px #5c3e3247;   /* menus, lifted mockups */
+  --shadow-lg:   0 18px 40px -16px #5c3e3259; /* dialogs only */
+  --scrim:       #231f2073;                    /* cat-black 45% — the only transparency */
+
+  /* ------------------------------------------------------------------------
+     6 · MOTION — calm, no bounce. Zeroed under reduced motion (below).
+     ------------------------------------------------------------------------ */
+  --ease-soft: cubic-bezier(.3, .7, .3, 1);
+  --ease-out:  cubic-bezier(.2, .8, .2, 1);
+  --dur-fast:  120ms;
+  --dur-base:  200ms;
+  --dur-slow:  360ms;
+  --press-scale: .97;
+
+  /* ------------------------------------------------------------------------
+     7 · BREAKPOINTS — reference values. CSS can't read custom properties
+     inside @media, so write the literal px in queries:
+       @media (min-width: 768px)  …  @media (min-width: 1024px)
+     400 is the design floor (smallest comp), not a query.
+     ------------------------------------------------------------------------ */
+  --bp-sm: 400px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+
+  /* z-index */
+  --z-base:    0;
+  --z-sticky:  10;
+  --z-menu:    20;
+  --z-overlay: 40;
+}
+
+/* Mobile values for the fluid aliases */
+@media (max-width: 767.98px) {
+  :root {
+    --fs-display:     var(--text-display-sm);
+    --fs-h1:          var(--text-h1-sm);
+    --fs-h2:          var(--text-h2-sm);
+    --fs-h3:          var(--text-h3-sm);
+    --fs-h4:          var(--text-h4-sm);
+    --fs-lead:        17px;
+    --page-gutter:    var(--gutter-sm);
+    --page-section-y: var(--section-y-sm);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur-base: 0ms;
+    --dur-slow: 0ms;
+    --press-scale: 1;
+  }
+}
