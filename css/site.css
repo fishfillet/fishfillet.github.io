@@ -150,14 +150,26 @@ details > summary::-webkit-details-marker { display: none; }
 .rating--lg .rating__num { font-size: 40px; }
 .strip { border-top: var(--border-width) solid var(--border-subtle); border-bottom: var(--border-width) solid var(--border-subtle); padding: 14px 0; font-size: var(--text-sm); line-height: 1.5; }
 
+/* ---- media frames --------------------------------------------------------
+   The frame's aspect-ratio alone sets its height; the image is laid over it,
+   so an image's own proportions can never stretch the box. Product cutouts are
+   contained with padding; photos (.media--fill) fill the frame edge to edge. */
+.p-hero__media, .sku__media, .buy-row__img { position: relative; overflow: hidden; }
+.p-hero__media img, .sku__media img, .buy-row__img img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;
+}
+/* :is() lifts specificity above the per-frame padding rules, including the 768px ones */
+:is(.p-hero__media, .sku__media, .buy-row__img).media--fill img { padding: 0; object-fit: cover; object-position: 50% 100%; }
+/* bottom-anchored: on the noOdor shot this crops the store banner at the top, never the badge or wordmark */
+
 /* ---- product hero ------------------------------------------------------- */
 .p-hero { display: grid; gap: var(--space-6); align-items: start; }
 .p-hero__media {
-  display: flex; align-items: center; justify-content: center; aspect-ratio: 1 / 1; overflow: hidden;
+  aspect-ratio: 1 / 1;
   border-radius: var(--radius-xl); background: var(--surface-warm);
 }
 .p-hero__media--noodor { background: var(--surface-photo-noodor); }
-.p-hero__media img { width: 78%; height: 78%; object-fit: contain; }
+.p-hero__media img { padding: 11%; }
 .p-hero__info { display: flex; flex-direction: column; gap: var(--space-4); }
 
 /* ---- tiles, steps, spec ------------------------------------------------- */
@@ -186,8 +198,8 @@ details > summary::-webkit-details-marker { display: none; }
 .pair__text { display: flex; flex-direction: column; gap: 14px; }
 .sku-grid { display: grid; gap: var(--space-5); }
 .sku { display: flex; flex-direction: column; overflow: hidden; border: var(--border-width) solid var(--border-default); border-radius: var(--radius-xl); background: var(--surface-card); }
-.sku__media { display: flex; align-items: center; justify-content: center; aspect-ratio: 4 / 3; padding: var(--space-4); background: var(--surface-photo-noodor); }
-.sku__media img { width: 100%; height: 100%; object-fit: contain; }
+.sku__media { aspect-ratio: 4 / 3; background: var(--surface-photo-noodor); }
+.sku__media img { padding: var(--space-4); }
 .sku__body { display: flex; flex: 1; flex-direction: column; gap: var(--space-3); padding: 18px 18px var(--space-5); border-top: var(--border-width) solid var(--border-subtle); }
 .sku__name { font-size: var(--fs-h3); }
 .sku__name a { color: inherit; text-decoration: none; }
@@ -233,8 +245,8 @@ details > summary::-webkit-details-marker { display: none; }
 .page-head { display: flex; flex-direction: column; gap: 14px; padding-bottom: var(--space-8); }
 .buy-rows { display: flex; flex-direction: column; gap: var(--space-4); }
 .buy-row { display: grid; gap: var(--space-4); align-items: center; padding: var(--space-5); border: var(--border-width) solid var(--border-default); border-radius: var(--radius-xl); background: var(--surface-card); }
-.buy-row__img { display: flex; align-items: center; justify-content: center; justify-self: center; width: 160px; aspect-ratio: 1 / 1; border-radius: var(--radius-lg); background: var(--surface-photo-noodor); }
-.buy-row__img img { width: 80%; height: 80%; object-fit: contain; }
+.buy-row__img { justify-self: center; width: 160px; aspect-ratio: 1 / 1; border-radius: var(--radius-lg); background: var(--surface-photo-noodor); }
+.buy-row__img img { padding: 10%; }
 .buy-row__body { display: flex; flex-direction: column; gap: var(--space-4); }
 .buy-row__name { font-size: var(--fs-h3); }
 .buy-row__text { font-size: var(--text-sm); line-height: 1.5; }
@@ -280,7 +292,8 @@ details > summary::-webkit-details-marker { display: none; }
   .split { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-16); }
   .pair { grid-template-columns: minmax(0, 1fr) minmax(0, 420px); gap: var(--space-10); padding: var(--space-12) 56px; }
   .sku-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .sku__media { aspect-ratio: 5 / 4; padding: var(--space-6); }
+  .sku__media { aspect-ratio: 5 / 4; }
+  .sku__media img { padding: var(--space-6); }
   .sku__body { gap: 14px; padding: var(--space-6) 28px 28px; }
   .sku__text { font-size: 16px; }
   .reviews { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--space-4); }
