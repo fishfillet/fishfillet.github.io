@@ -10,25 +10,34 @@
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   FONT — Galano Grotesque, self-hosted .woff2 (BUILD_SPEC §7)
-   ⚠ BLOCKER: confirm webfont rights before R1 closes. If not licensed, swap
-   the two src lines for Darker Grotesque (and revisit the type scale below,
-   which is tuned for Galano's wider set). Never ship the desktop .otf.
-   Subset to Latin + Latin-1 (Indonesian needs nothing beyond that).
+   FONT — Darker Grotesque, self-hosted .woff2 (BUILD_SPEC §7)  ▲ R2
+   Interim web face while the Galano Grotesque webfont licence is unresolved.
+   Darker Grotesque is SIL OFL 1.1 (see /fonts/OFL.txt); Latin subset, from
+   @fontsource/darker-grotesque 5.3.0.
+   size-adjust: Darker's x-height is ~0.41em against Galano's ~0.50em, so it is
+   scaled 120% to sit on the type scale below, which was tuned for Galano.
+   Weights: Darker is lighter than Galano at the same number. Measured stem
+   width at 120%: Darker 600 ≈ Galano 500, Darker 800 ≈ Galano 600. So the
+   token weights stay 500/600 and are served by the 600 and 800 files. This
+   is also the 600/800 pairing the live homepage already uses.
+   To restore Galano once licensed: swap the family name and src lines back,
+   drop size-adjust, and update --font-display / --font-body.
    -------------------------------------------------------------------------- */
 @font-face {
-  font-family: "Galano Grotesque";
-  src: url("/fonts/galano-grotesque-500.woff2") format("woff2");
+  font-family: "Darker Grotesque";
+  src: url("/fonts/darker-grotesque-600.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
+  size-adjust: 120%;
 }
 @font-face {
-  font-family: "Galano Grotesque";
-  src: url("/fonts/galano-grotesque-600.woff2") format("woff2");
+  font-family: "Darker Grotesque";
+  src: url("/fonts/darker-grotesque-800.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
+  size-adjust: 120%;
 }
 
 :root {
@@ -110,11 +119,11 @@
   --focus-offset:         2px;
 
   /* ------------------------------------------------------------------------
-     3 · TYPE — Galano Grotesque only. 600 headings, 500 body. No italic.
+     3 · TYPE — one family (Darker Grotesque until Galano is licensed). 600 headings, 500 body. No italic.
      Desktop / mobile pairs; the fluid --fs-* aliases switch at 768px.
      ------------------------------------------------------------------------ */
-  --font-display: "Galano Grotesque", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  --font-body:    "Galano Grotesque", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-display: "Darker Grotesque", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-body:    "Darker Grotesque", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 
   --weight-headline: 600;
   --weight-body:     500;
